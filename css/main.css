@@ -1,0 +1,199 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td
+	{
+	margin: 0;
+	padding: 0;
+}
+
+.text-error {
+	color: Red;
+}
+
+.width1 {
+	width: 10px;
+}
+
+.width2 {
+	width: 20px;
+}
+
+.margin-left2 {
+	margin-left: 20px;
+}
+
+.height1 {
+	height: 10px;
+}
+
+.height2 {
+	height: 20px;
+}
+
+.height5 {
+	height: 50px;
+}
+
+.content-center {
+	height: auto;
+}
+
+.content-center .content {
+	width: 600px;
+	height: 300px;
+	visibility: hidden;
+}
+
+a { /*color:#dd0000;*/
+	color: #1863A1;
+	text-decoration: none;
+}
+
+a:hover { /*color:#333333;*/
+	color: #0181EB;
+	text-decoration: underline;
+}
+
+.content {
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.content img {
+	max-width: 600px;
+	display: block;
+	margin: 4px auto;
+	-webkit-box-shadow: #999 1px 1px 4px;
+	-moz-box-shadow: #999 1px 1px 4px;
+	box-shadow: #999 1px 1px 4px;
+}
+
+.listing-item,.listing-seperator {
+	list-style-type: none;
+}
+
+.listing-item a {
+	padding: .2em 1em;
+	font-family: Georgia, "Microsoft YaHei", serif,Galdeano, "Hiragino Sans GB", sans-serif;
+}
+
+.listing-item time {
+	color: #999999;
+	font-family: Georgia, "Microsoft YaHei", serif,Galdeano, "Hiragino Sans GB", sans-serif;
+}
+
+.listing-seperator {
+	font-weight: bold;
+}
+
+header {
+	padding: .5em 0;
+	border-bottom: 1px solid #cccccc;
+}
+
+nav {
+	font-family: Georgia, serif, "Microsoft YaHei";
+	font-size: 1.1em;
+	text-transform: uppercase;
+	width: 9em;
+}
+
+nav a {
+	display: block;
+	padding: .7em 1em;
+	color: #000000;
+}
+
+nav a:hover { /*background-color:#ff0000;*/
+	background-color: #0181EB;
+	text-decoration: none;
+	color: #f9f9f9;
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+}
+
+.post {
+	padding: 1em 0em;
+}
+
+body {
+	font-size: 100%;
+	color: #444;
+	background: #fff;
+	font-family: "Georgia", Arial, Helvetica, sans-serif;
+}
+
+div.caption {
+	font-size: 14px;
+	text-align: right;
+	margin: auto;
+	width: 800px;
+	position: relative;
+	top: -25px;
+	background-color: none;
+}
+
+a,a.visited {
+	color: #004d9b;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.footer {
+	color: #999999;
+	font-family: Tahoma;
+	font-size: 12px;
+	text-align: center;
+}
+
+.footer a {
+	color: #999999;
+	text-decoration: none;
+}
+
+p.about {
+	font-size: 12px;
+}
+
+tr td {
+	border-bottom: 1px solid #999;
+	vertical-align: top;
+}
+
+tr th {
+	background: #999;
+	color: #fff;
+}
+
+.dsq-item-cp {
+	display: none;
+}
+
+div.trans {
+	font-size: 10px;
+}
+
+.meta {
+	text-align: right;
+	font-size: 12px;
+}
+
+header {
+	padding: .5em 0;
+	border-bottom: 1px solid #cccccc;
+}
+
+.post {
+	padding: 1em 0em;
+}
+
+h1 {
+	font-family: Georgia, serif, "Microsoft YaHei";
+	font-size: 2em;
+	color: #000;
+}
+
+body {
+	font-family: Georgia, "Microsoft YaHei", serif,Galdeano, "Hiragino Sans GB", sans-serif;
+}
