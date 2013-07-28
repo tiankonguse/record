@@ -1,92 +1,91 @@
-<?php 
+<?php
 session_start();
-require_once("inc/init.php");
-$user = $_SESSION['share_admin'];
-if(strcmp($user,"share_admin") != 0 || !isset($_GET["id"])){
-	header('Location:index.php');
-}
-
-$id = mysql_real_escape_string($_GET["id"]);
-$sql = "select * from `share_record` where `id` = '$id'";
-$result = @mysql_query($sql ,$conn);
-if($result && $row=@mysql_fetch_array($result)){
-	$title = $row['title'];
-	$time = date("m/d/Y h:i",$row['time']);
-	$content = $row['content'];
+if(isset($_SESSION['record_admin'])){
+	$admin = $_SESSION['record_admin'];
 }else{
-	header('Location:index.php');
+	$admin = "";
 }
 
+if(strcmp($admin,"record_admin") != 0 || !isset($_GET["id"])){
+	header('Location:index.php?message=请先登录');
+	die();
+}
 
+$id = intval($_GET["id"]);
+
+if($id == 0){
+	header('Location:index.php?message=非法操作');
+	die();
+}
+
+require("inc/init.php");
+require("inc/php_version.php");
+
+$sql = "select * from `record_record` where `id` = '$id'";
+$result = mysql_query($sql ,$conn);
+if($result && $row = mysql_fetch_array($result)){
+	$_title = getDateFromMysql($row['title']);
+	$time = date("m/d/Y h:i",$row['time']);
+	$content = getDateFromMysql($row['content']);
+	$_SESSION['record_id'] = $id;
+}else{
+	header('Location:index.php?message=这篇文章不存在');
+	die();
+}
 ?>
+
+
 
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
-	<?php require_once("inc/header.inc.php"); ?>
-	<title>write share</title>
-	
-	<link rel="stylesheet" type="text/css" href="datepicker/css/jquery-ui.css" />
-	<script type="text/javascript" src="datepicker/js/jquery-ui-slide.min.js"></script>
-	<script type="text/javascript" src="datepicker/js/jquery-ui-timepicker-addon.js"></script>
-	
-	<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
-	<script charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
-	<script charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
-	<script charset="utf-8" src="js/write.js"></script>
+<?php
+$title = "修改记录：".$_title;
+require('inc/header.inc.php');
+?>
+<link rel="stylesheet" href="datepicker/css/jquery-ui.css" />
+<script src="datepicker/js/jquery-ui-slide.min.js"></script>
+<script src="datepicker/js/jquery-ui-timepicker-addon.js"></script>
+
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script src="kindeditor/kindeditor-min.js"></script>
+<script src="kindeditor/lang/zh_CN.js"></script>
+<script src="js/write.js"></script>
 </head>
 <body>
 
-<div class="container">
-	<div class="page-header" style="text-align:center;">
-		<h1>write share</h1>
-	</div>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span2">
-				<nav> 
-					<?php require_once("inc/nav.php"); ?>
-				</nav>
-			</div>
-			<div class="span8 offset1">
-				<form method="post" action="inc/alter.php?id=<?php echo $id;?>">
-						<ul class="unstyled">
-				            <li>
-				                <p>
-				                	  标&nbsp;&nbsp;题：
-				                    <input id="title" name="title" type="text" value="<?php echo $title;?>" placeholder="标 题">
-								</p>
-							</li>				            
-							<li>
-								<p>
-				                   	 时&nbsp;&nbsp;间：
-									<input id="time" name="time" type="text" value="<?php echo $time;?>">
-								</p>
-				            </li>
+	<header>
+	<?php
+	require('inc/top.inc.php');
+	?>
+	</header>
 
-							<li>
-								<p>
-									<div class="content-left">
-										记录：
-									</div>
-									<div class="content-center">
-										<textarea name="content" id="content" class="content" value=""><?php echo $content;?></textarea>
-									</div>
-								</p>
-				            </li>
-							<li>
-								<p>
-									<button class="btn btn-large" id="submit" >提交</button>
-								</p>
-				            </li>
-						</ul>
-						
-				</form>
-			</div>
+	<section>
+		<div class="container">
+			<form method="post" action="inc/alter.php">
+				<div class="post-line">
+					标&nbsp;&nbsp;题： <input id="title" type="text" placeholder="标 题"
+						value="<?php echo $_title;?>">
+				</div>
+				<div class="post-line">
+					时&nbsp;&nbsp;间： <input id="time" type="text"
+						value="<?php echo $time;?>">
+				</div>
+				<div class="post-line">
+					<div style="margin-bottom: 10px;">内容：</div>
+					<textarea name="content" id="content" class="content">
+					<?php echo $content;?>
+					</textarea>
+				</div>
+				<div class="post-line">
+					<button class="btn btn-large btn-info" id="submit">提交</button>
+				</div>
+			</form>
 		</div>
-	</div>
-</div>
-
-<?php require_once("inc/footer.inc.php"); ?>
-	</body>
+	</section>
+	<footer>
+	<?php  require('inc/footer.inc.php'); ?>
+	</footer>
+</body>
 </html>
+	<?php require("inc/end.php"); ?>

@@ -27,7 +27,7 @@ if (PHP_VERSION_ID < 50207) {
 }
 
 function getDateFromMysql($data){
-	if(PHP_VERSION_ID < 50300){
+	if(PHP_VERSION_ID < 50317){
 		$data = stripslashes($data);
 	}
 	return $data;

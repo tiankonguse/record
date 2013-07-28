@@ -5,10 +5,16 @@
 <meta name="author" content="tiankonguse">
 <meta http-equiv="pragma" content="no-cache">
 
-<link rel="shortcut" href="/img/tiankonguse.ico" > 
-<link rel="shortcut icon" href="/img/tiankonguse.ico" > 
+<title><?php echo $title; ?></title>
+<meta name="description" content="<?php echo $title; ?>">
+<meta name="author" content="tiankonguse">
+
+
+<link rel="shortcut icon" href="img/logo.ico" /> 
+
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/animation.css" rel="stylesheet">
 <link href="css/docs.css" rel="stylesheet">
 <link href="css/prettify.css" rel="stylesheet">
 <link href="css/screen.css" rel="stylesheet">
@@ -16,9 +22,11 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery-ui.js"></script>
-<script src="js/bootstrap.js"></script>	
+<script src="js/bootstrap.js"></script>
 <script src="js/bootbox.min.js"></script>
 <script src="js/jquery.tablesorter.min.js"></script>
+<script src="js/common.js"></script>
+
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <![endif]-->
