@@ -7,11 +7,8 @@
 
 <title><?php echo $title; ?></title>
 <meta name="description" content="<?php echo $title; ?>">
-<meta name="author" content="tiankonguse">
-
 
 <link rel="shortcut icon" href="img/logo.ico" /> 
-
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-responsive.css" rel="stylesheet">
 <link href="css/animation.css" rel="stylesheet">
