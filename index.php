@@ -1,31 +1,14 @@
 <?php
 session_start();
-require("inc/init.php");
-require("inc/php_version.php");
-require("inc/function.php");
-if(isset($_SESSION['record_admin'])){
-	$admin = $_SESSION['record_admin'];
-}else{
-	$admin = "";
-}
+require("./inc/common.php");
+require("./inc/function.php");
 
-$pageSize = 30;
-$nowPage = 1;
+checkLogin();
+initPage(15);
 
-$allPageNum = intval((getRecordNum() + $pageSize - 1) / $pageSize);
-
-if(isset($_GET['nowPage'])){
-	$nowPage = intval($_GET['nowPage']);
-}
-
-$nowPage = $nowPage % $allPageNum;
-
-if($nowPage == 0){
-	$nowPage = $allPageNum;	
-}
-
-
-
+$nowPage = $_GET['nowPage'];
+$allPageNum = $_GET['allPageNum'];
+$pageSize = $_GET['pageSize'];
 ?>
 
 <!DOCTYPE HTML>
@@ -33,80 +16,97 @@ if($nowPage == 0){
 <head>
 <?php
 $title = "tiankonguse' record";
-require('inc/header.inc.php');
+require BASE_INC . 'head.inc.php';
 ?>
+<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
 </head>
-
 <body>
+    <header>
+        <div class="title">
+            <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
+        </div>
+    </header>
 
-	<header>
-	<?php
-	$title = "";
-	require('inc/top.inc.php');
-	?>
-	</header>
+    <section>
+        <div class="container">
+            <ul class="listing">
+            <?php
+            $sql = "select * from `record_record` ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+            $result = mysql_query($sql ,$conn);
 
-	<section>
-	<?php
-	require('inc/nav.inc.php');
-	?>
-	</section>
-	<section>
-		<div class="container">
-			<ul class="listing">
-			<?php
+            $pre_year = "";
+            $pre_mon = "";
 
-			$sql = "select * from `record_record` ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
-			$result = mysql_query($sql ,$conn);
+            while($row=@mysql_fetch_array($result)){
+            	$id = $row['id'];
+            	$time = $row['time'];
+            	$title = getDateFromMysql($row['title']);
+            	$time = date("Y-m-d",$time);
+            	sscanf($time,"%d-%d-%d", $year, $month, $day);
+            	if($pre_year != $year || $pre_mon != $month){
+            		$pre_year = $year;
+            		$pre_mon  = $month;
+            		echo "<li class='listing-seperator'>$pre_year - $pre_mon</li>";
+            	}
 
-			$pre_year = "";
-			$pre_mon = "";
+            	$alter = "";
+            	$len = 35;
+            	if(strcmp($admin,"record_admin") == 0){
+            		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
+            		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
+            		$len = 28;
+            	}
+            	echo "
+                    <li class='listing-item'>
+                        <div style='float: right;clear: both;'>$alter</div>
+                        <time datetime='$time'>$time</time>
+                        <a href='".MAIN_DOMAIN."record.php?id=$id' title='$title'>".htmlspecialchars(mb_substr($title,0,$len,'utf-8'))."</a>
+                    </li>";
+            }
+            ?>
+            </ul>
+        </div>
+    </section>
+    <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 
-			while($row=@mysql_fetch_array($result)){
-				$id = $row['id'];
-				$time = $row['time'];
-				$title = getDateFromMysql($row['title']);
-				$time = date("Y-m-d",$time);
-				//2013-06-16 22:10:00
-				sscanf($time,"%d-%d-%d", $year, $month, $day);
-				if($pre_year != $year || $pre_mon != $month){
-					$pre_year = $year;
-					$pre_mon  = $month;
-					echo "<li class='listing-seperator'>$pre_year - $pre_mon</li>";
-				}
+    <section>
+    <?php require('./inc/page.inc.php'); ?>
+    </section>
+    <footer>
+        <?php  require BASE_INC . 'footer.inc.php'; ?>
+    </footer>
 
-				$alter = "";
-				if(strcmp($admin,"record_admin") == 0){
-					$alter = "<div class=''><a href='alter.php?id=$id'>alter</a></div>";
-				}
-				echo "
-					<li class='listing-item'>
-						<div style='float: right;clear: both;'>$alter</div>
-						<time datetime='$time'>$time</time>
-						<a href='record.php?id=$id' title='$title'>$title</a>
-					</li>";
-			}
-			?>
-			</ul>
-		</div>
-	</section>
-	<section>
-	<?php
-	require('inc/page.inc.php');
-	?>
-	</section>
 
-	<footer>
-	<?php  require('inc/footer.inc.php'); ?>
-	</footer>
+    <script>
 
-	<?php
-	if(isset($_GET['message'])){
-		echo "<script>$(function(){var _state = {title:'',url:window.location.href.split('?')[0]};history.pushState(_state,'','?');showMessage('" . htmlspecialchars($_GET['message']) . "');});</script>";
-	}
-	echo "<script>$(function(){var _state = {title:'',url:window.location.href.split('?')[0]};history.pushState(_state,'','?nowPage=$nowPage');</script>";
-	
-	?>
+</script>
+    <?php
+    if(isset($_GET['message'])){
+    	echo "
+            <script>
+                $(function(){
+                    var _state = {
+                        title:'',
+                        url:window.location.href.split('?')[0]
+                    };
+                    history.pushState(_state,'','?');
+                    showMessage('" . htmlspecialchars($_GET['message']) . "');
+                });
+            </script>";
+    }
+    echo "
+    <script>
+    $(function(){
+        var _state = {
+            title:'',
+            url:window.location.href.split('?')[0]
+        };
+        history.pushState(_state,'','?nowPage=$nowPage');
+    });
+    </script>";
+
+    ?>
+    <div class="top-btn top-show top-hide"></div>
+    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>
-	<?php require("inc/end.php"); ?>
