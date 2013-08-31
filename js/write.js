@@ -33,9 +33,8 @@ $(function() {
 
 	$.post(action, data, function(d) {
 	    if (d.code == 0) {
-		showMessage(d.message, function() {
-		    window.location = ".";
-		}, 4000);
+		showMessage(d.message);
+		setTimeout((function(){window.location = "index.php";}),2000);
 	    } else {
 		showMessage(d.message);
 	    }

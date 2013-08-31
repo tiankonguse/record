@@ -28,7 +28,7 @@ require BASE_INC . 'head.inc.php';
     </header>
     <section>
         <div class="container">
-            <form class="form-horizontal" action="<?php echo MAIN_DOMAIN;?>inc/login.php"
+            <form class="form-horizontal" action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=1"
                 method="post">
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">email</label>

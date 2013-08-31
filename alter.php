@@ -56,7 +56,7 @@ require BASE_INC . 'head.inc.php';
     <section>
         <div class="container">
             <form method="post"
-                action="<?php echo MAIN_DOMAIN;?>inc/alter.php">
+                action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=3">
                 <div class="post-line">
                     标&nbsp;&nbsp;题： <input id="title" type="text"
                         placeholder="标 题" value="<?php echo $_title;?>">

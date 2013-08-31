@@ -14,7 +14,7 @@ $id = intval($_GET["id"]);
 $sql = "select * from `record_record` where `id` = '$id'";
 $result = mysql_query($sql ,$conn);
 if($result && $row = mysql_fetch_array($result)){
-	$title = getDateFromMysql($row['title']);
+	$title = htmlspecialchars(getDateFromMysql($row['title']));
 	$time = date("Y-m-d",$row['time']);
 	$content = getDateFromMysql($row['content']);
 }else{
@@ -54,13 +54,6 @@ require BASE_INC . 'head.inc.php';
                 </section>
                 <section class="post">
                 <?php echo $content; ?>
-                </section>
-                <section class="meta">
-                    <span class="time"> posted at <time
-                            datetime="<?php echo $time;?>">
-                            <?php echo $time;?>
-                        </time>
-                    </span>
                 </section>
             </article>
         </div>
