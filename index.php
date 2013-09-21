@@ -50,17 +50,18 @@ require BASE_INC . 'head.inc.php';
             	}
 
             	$alter = "";
-            	$len = 35;
+            	$len = 635;
             	if(strcmp($admin,"record_admin") == 0){
             		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
             		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
-            		$len = 28;
+            		$len = 600;
             	}
             	echo "
                     <li class='listing-item'>
                         <div style='float: right;clear: both;'>$alter</div>
                         <time datetime='$time'>$time</time>
-                        <a href='".MAIN_DOMAIN."record.php?id=$id' title='$title'>".htmlspecialchars(mb_substr($title,0,$len,'utf-8'))."</a>
+                        
+                        <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href='".MAIN_DOMAIN."record.php?id=$id' title='$title'>".htmlspecialchars($title)."</a></div>
                     </li>";
             }
             ?>
@@ -75,11 +76,6 @@ require BASE_INC . 'head.inc.php';
     <footer>
         <?php  require BASE_INC . 'footer.inc.php'; ?>
     </footer>
-
-
-    <script>
-
-</script>
     <?php
     if(isset($_GET['message'])){
     	echo "
@@ -89,21 +85,11 @@ require BASE_INC . 'head.inc.php';
                         title:'',
                         url:window.location.href.split('?')[0]
                     };
-                    history.pushState(_state,'','?');
+                    history.pushState(_state,'','?nowPage=$nowPage');
                     showMessage('" . htmlspecialchars($_GET['message']) . "');
                 });
             </script>";
     }
-    echo "
-    <script>
-    $(function(){
-        var _state = {
-            title:'',
-            url:window.location.href.split('?')[0]
-        };
-        history.pushState(_state,'','?nowPage=$nowPage');
-    });
-    </script>";
 
     ?>
     <div class="top-btn top-show top-hide"></div>

@@ -28,7 +28,8 @@ require BASE_INC . 'head.inc.php';
     </header>
     <section>
         <div class="container">
-            <form class="form-horizontal" action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=1"
+            <form class="form-horizontal"
+                action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=1"
                 method="post">
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">email</label>
@@ -82,21 +83,8 @@ require BASE_INC . 'head.inc.php';
     <?php  require BASE_INC . 'footer.inc.php'; ?>
     </footer>
     <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-    <div id="message" class="modal hide fade">
-        <div class="modal-header">
-            <button type="button" class="close">×</button>
-            <h3 id="messageModalLabel">warnning</h3>
-        </div>
-        <div class="modal-body">
-            <p></p>
-        </div>
-        <div class="modal-footer">
-            <button class="btn ok">确定</button>
-        </div>
-    </div>
-    <div class="modal-backdrop hide"></div>
     <script src="<?php echo DOMAIN_JS;?>main.js"></script>
-    
+
     <script>
             (function(){
                 $("form").submit(function(){

@@ -37,12 +37,12 @@ require BASE_INC . 'head.inc.php';
     <header>
         <div class="title">
             <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
-            <div class="sub-title">
-            <?php echo $title; ?>
-            </div>
         </div>
     </header>
     <section>
+        <div class="title sub-title">
+        <?php echo $title; ?>
+        </div>
         <div class="container">
             <article class="content">
                 <section class="meta">
