@@ -48,11 +48,13 @@ $(function() {
 	    allowPreviewEmoticons : true,
 	    allowImageUpload : true,
 	    minHeight : "300",
-	    items : [ 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor',
-		    'bold', 'italic', 'underline', 'removeformat', '|',
-		    'justifyleft', 'justifycenter', 'justifyright',
-		    'insertorderedlist', 'insertunorderedlist', '|',
-		    'emoticons', 'image', 'link' ]
+	    items:['source', '|', 'undo', 'redo', '|', 'preview', 'code', 'cut', 'copy', 'paste',
+	   	'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+		'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+		'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+		'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+		'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image','insertfile', 'table', 'hr', 'emoticons',  'pagebreak',
+		'anchor', 'link', 'unlink']
 	});
     });
 

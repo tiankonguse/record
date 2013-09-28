@@ -44,6 +44,7 @@ require BASE_INC . 'head.inc.php';
 </head>
 
 <body>
+<?php require BASE_INC . 'rain.php';?>
     <header>
         <div class="title">
             <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>

@@ -28,7 +28,8 @@
 }
 
 .listing-item {
-    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     border-bottom-width: 1px;
     border-bottom-color: rgba(63, 63, 63, 0.16);
     border-bottom-style: dotted;
@@ -56,12 +57,6 @@ write css
     margin-top: 3px;
 }
 
-
-
 input {
     width: 206px;
 }
-
-
-
-

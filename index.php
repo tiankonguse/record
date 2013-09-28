@@ -19,8 +19,10 @@ $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
+
 </head>
 <body>
+    <?php require BASE_INC . 'rain.php';?>
     <header>
         <div class="title">
             <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
@@ -50,7 +52,7 @@ require BASE_INC . 'head.inc.php';
             	}
 
             	$alter = "";
-            	$len = 635;
+            	$len = 630;
             	if(strcmp($admin,"record_admin") == 0){
             		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
             		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
@@ -58,10 +60,9 @@ require BASE_INC . 'head.inc.php';
             	}
             	echo "
                     <li class='listing-item'>
-                        <div style='float: right;clear: both;'>$alter</div>
-                        <time datetime='$time'>$time</time>
-                        
+                        <div style=\"float: left; \"><time datetime='$time'>$time</time></div>
                         <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href='".MAIN_DOMAIN."record.php?id=$id' title='$title'>".htmlspecialchars($title)."</a></div>
+                        <div style='float: right;'>$alter</div>
                     </li>";
             }
             ?>
@@ -74,7 +75,7 @@ require BASE_INC . 'head.inc.php';
     <?php require('./inc/page.inc.php'); ?>
     </section>
     <footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
+    <?php  require BASE_INC . 'footer.inc.php'; ?>
     </footer>
     <?php
     if(isset($_GET['message'])){
@@ -92,7 +93,7 @@ require BASE_INC . 'head.inc.php';
     }
 
     ?>
-    <div class="top-btn top-show top-hide"></div>
     <script src="<?php echo DOMAIN_JS;?>main.js"></script>
+
 </body>
 </html>

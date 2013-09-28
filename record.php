@@ -34,6 +34,7 @@ require BASE_INC . 'head.inc.php';
 </head>
 
 <body>
+    <?php require BASE_INC . 'rain.php';?>
     <header>
         <div class="title">
             <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
@@ -58,9 +59,12 @@ require BASE_INC . 'head.inc.php';
             </article>
         </div>
     </section>
+    <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
     <footer>
     <?php  require BASE_INC . 'footer.inc.php'; ?>
     </footer>
+
+    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>
 
