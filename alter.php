@@ -44,45 +44,55 @@ require BASE_INC . 'head.inc.php';
 </head>
 
 <body>
-<?php require BASE_INC . 'rain.php';?>
-    <header>
-        <div class="title">
-            <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
-            <div class="sub-title">
-            <?php echo $title; ?>
-            </div>
-        </div>
-    </header>
+<?php //require BASE_INC . 'rain.php';?>
+    <div class="outer-wrapper">
+        <div class="inner-wrapper">
+            <header>
+                <div class="title">
+                    <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
+                </div>
+                <?php require './inc/nav.php';?>
+            </header>
 
-    <section>
-        <div class="container">
-            <form method="post"
-                action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=3">
-                <div class="post-line">
-                    标&nbsp;&nbsp;题： <input id="title" type="text"
-                        placeholder="标 题" value="<?php echo $_title;?>">
+            <section class="billboard">
+                <div class="title sub-title">
+                    <h1>
+                    <?php echo $title; ?>
+                    </h1>
                 </div>
-                <div class="post-line">
-                    时&nbsp;&nbsp;间： <input id="time" type="text"
-                        value="<?php echo $time;?>">
-                </div>
-                <div class="post-line">
-                    <div style="margin-bottom: 10px;">内容：</div>
-                    <textarea name="content" id="content"
-                        class="content">
-                        <?php echo $content;?>
+                <div class="container">
+                    <form method="post"
+                        action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=3">
+                        <div class="post-line">
+                            标&nbsp;&nbsp;题： <input id="title"
+                                type="text" placeholder="标 题"
+                                value="<?php echo $_title;?>">
+                        </div>
+                        <div class="post-line">
+                            时&nbsp;&nbsp;间： <input id="time" type="text"
+                                value="<?php echo $time;?>">
+                        </div>
+                        <div class="post-line">
+                            <div style="margin-bottom: 10px;">内容：</div>
+                            <textarea name="content" id="content"
+                                class="content">
+                                <?php echo $content;?>
 					</textarea>
+                        </div>
+                        <div class="post-line">
+                            <button class="btn btn-large btn-info"
+                                id="submit">修改</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="post-line">
-                    <button class="btn btn-large btn-info" id="submit">修改</button>
-                </div>
-            </form>
+            </section>
         </div>
-    </section>
-    <footer>
-    <?php  require BASE_INC . 'footer.inc.php'; ?>
-    </footer>
-    <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
+        <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
+        <footer>
+        <?php  require BASE_INC . 'footer.inc.php'; ?>
+        </footer>
+    </div>
+
     <script src="<?php echo DOMAIN_JS;?>jquery-ui.js"></script>
     <script
         src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-slide.min.js"></script>
@@ -94,4 +104,4 @@ require BASE_INC . 'head.inc.php';
     <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>
-    <?php require("inc/end.php"); ?>
+        <?php require("inc/end.php"); ?>

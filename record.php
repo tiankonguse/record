@@ -6,8 +6,10 @@ if(!isset($_GET["id"])){
 }
 
 session_start();
+
 require("./inc/common.php");
 require("./inc/function.php");
+
 checkLogin();
 
 $id = intval($_GET["id"]);
@@ -32,39 +34,46 @@ require BASE_INC . 'head.inc.php';
 ?>
 <link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
 </head>
-
 <body>
-    <?php require BASE_INC . 'rain.php';?>
-    <header>
-        <div class="title">
-            <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
+<?php //require BASE_INC . 'rain.php';?>
+    <div class="outer-wrapper">
+        <div class="inner-wrapper">
+            <header>
+                <div class="title">
+                    <a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
+                </div>
+                <?php require './inc/nav.php';?>
+            </header>
+            
+            <section class="billboard">
+                <div class="title sub-title">
+                    <h1>
+                    <?php echo $title; ?>
+                    </h1>
+                </div>
+                <div class="container">
+                    <article class="content">
+                        <section class="meta">
+                            <span class="time"> posted at <time
+                                    datetime="<?php echo $time;?>">
+                                    <?php echo $time;?>
+                                </time>
+                            </span>
+                        </section>
+                        <section class="post">
+                        <?php echo $content; ?>
+                        </section>
+                    </article>
+                </div>
+            </section>
         </div>
-    </header>
-    <section>
-        <div class="title sub-title">
-        <?php echo $title; ?>
-        </div>
-        <div class="container">
-            <article class="content">
-                <section class="meta">
-                    <span class="time"> posted at <time
-                            datetime="<?php echo $time;?>">
-                            <?php echo $time;?>
-                        </time>
-                    </span>
-                </section>
-                <section class="post">
-                <?php echo $content; ?>
-                </section>
-            </article>
-        </div>
-    </section>
-    <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-    <footer>
-    <?php  require BASE_INC . 'footer.inc.php'; ?>
-    </footer>
+        <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
+        <script src="<?php echo DOMAIN_JS;?>main.js"></script>
+        <footer>
+            <?php  require BASE_INC . 'footer.inc.php'; ?>
+        </footer>
+    </div>
 
-    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>
 

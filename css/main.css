@@ -60,3 +60,139 @@ write css
 input {
     width: 206px;
 }
+
+.title {
+    text-align: left;
+    margin: auto;
+}
+
+.meta {
+    text-align: left;
+}
+
+header {
+    text-align: left;
+}
+
+header>.title {
+    padding-bottom: 38px;
+    padding-top: 28px;
+}
+
+.post {
+    border: 1px dotted rgb(209, 209, 209);
+    padding: 10px;
+}
+
+pre.prettyprint {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    margin-right: 30px;
+    padding: 6px 12px;
+    color: #85FF00;
+    overflow: auto;
+    word-wrap: break-word;
+    font: 12px/1.5 Monaco, "Andale Mono", "Lucida Console",
+        "Bitstream Vera Sans Mono", "Courier New", monospace;
+    border: 1px dashed #CCC;
+    background-color: #5C5C5C;
+}
+
+.inner-wrapper>header {
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.menu-wrapper {
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    background: #FFFFFF;
+}
+
+.menu-list {
+    margin: 0 auto;
+    padding: 0 1.875em;
+    list-style: none;
+}
+
+.menu-list>li {
+    display: inline-block;
+}
+
+.menu-list>li:first-child {
+    margin-left: 0;
+}
+.menu-list>li:last-child {
+    margin-left: 0;
+    float:right;
+}
+
+.menu-list>li>a {
+    padding-left: 2em;
+    padding-right: 2em;
+    color: #AAA;
+    font-size: 1.2em;
+    line-height: 3em;
+    display: inline-block;
+    position: relative;
+    outline: none;
+    text-decoration: none;
+}
+
+.menu-list>li>a:hover {
+    background-color: #706B6B;
+}
+
+.sub-title {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.container {
+    margin-top: 10px;
+    max-width: inherit;
+    margin: auto;
+}
+
+.outer-wrapper {
+    background: #eee;
+    border-top: 2px solid #fff;
+}
+
+.inner-wrapper {
+    padding-bottom: 20px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.billboard {
+    margin: 0 auto;
+    padding-top: 42px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0 0 0 1px #fff inset;
+    -moz-box-shadow: 0 0 0 1px #fff inset;
+    box-shadow: 0 0 0 1px #fff inset;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+footer {
+    color: #666;
+    padding: 10px 0;
+    font-size: .875em;
+    line-height: 1.285;
+    background: #fff;
+    width: 100%;
+    margin: 1em 0 0;
+}
+
+.footer {
+    margin-top: 0px;
+    background-color: inherit;
+    border-top: inherit;
+}

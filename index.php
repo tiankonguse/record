@@ -22,61 +22,68 @@ require BASE_INC . 'head.inc.php';
 
 </head>
 <body>
-    <?php require BASE_INC . 'rain.php';?>
-    <header>
-        <div class="title">
-            <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
-        </div>
-    </header>
+<?php //require BASE_INC . 'rain.php';?>
+    <div class="outer-wrapper">
+        <div class="inner-wrapper">
+            <header>
+                <div class="title">
+                    <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?>
+                    </a>
+                </div>
+                <?php require './inc/nav.php';?>
+            </header>
 
-    <section>
-        <div class="container">
-            <ul class="listing">
-            <?php
-            $sql = "select * from `record_record` ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
-            $result = mysql_query($sql ,$conn);
+            <section class="billboard">
+                <div class="container">
+                    <ul class="listing">
+                    <?php
+                    $sql = "select * from `record_record` ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+                    $result = mysql_query($sql ,$conn);
 
-            $pre_year = "";
-            $pre_mon = "";
+                    $pre_year = "";
+                    $pre_mon = "";
 
-            while($row=@mysql_fetch_array($result)){
-            	$id = $row['id'];
-            	$time = $row['time'];
-            	$title = getDateFromMysql($row['title']);
-            	$time = date("Y-m-d",$time);
-            	sscanf($time,"%d-%d-%d", $year, $month, $day);
-            	if($pre_year != $year || $pre_mon != $month){
-            		$pre_year = $year;
-            		$pre_mon  = $month;
-            		echo "<li class='listing-seperator'>$pre_year - $pre_mon</li>";
-            	}
+                    while($row=@mysql_fetch_array($result)){
+                    	$id = $row['id'];
+                    	$time = $row['time'];
+                    	$title = getDateFromMysql($row['title']);
+                    	$time = date("Y-m-d",$time);
+                    	sscanf($time,"%d-%d-%d", $year, $month, $day);
+                    	if($pre_year != $year || $pre_mon != $month){
+                    		$pre_year = $year;
+                    		$pre_mon  = $month;
+                    		echo "<li class='listing-seperator'>$pre_year - $pre_mon</li>";
+                    	}
 
-            	$alter = "";
-            	$len = 630;
-            	if(strcmp($admin,"record_admin") == 0){
-            		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
-            		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
-            		$len = 600;
-            	}
-            	echo "
-                    <li class='listing-item'>
+                    	$alter = "";
+                    	$len = 630;
+                    	if(strcmp($admin,"record_admin") == 0){
+                    		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
+                    		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
+                    		$len = 600;
+                    	}
+                    	echo "
+                    <li class=\"listing-item\">
                         <div style=\"float: left; \"><time datetime='$time'>$time</time></div>
-                        <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href='".MAIN_DOMAIN."record.php?id=$id' title='$title'>".htmlspecialchars($title)."</a></div>
-                        <div style='float: right;'>$alter</div>
+                        <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\">".htmlspecialchars($title)."</a></div>
+                        <div style=\"float: right;\">$alter</div>
                     </li>";
-            }
-            ?>
-            </ul>
-        </div>
-    </section>
-    <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
+                    }
+                    ?>
+                    </ul>
+                </div>
+            </section>
+            <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 
-    <section>
-    <?php require('./inc/page.inc.php'); ?>
-    </section>
-    <footer>
-    <?php  require BASE_INC . 'footer.inc.php'; ?>
-    </footer>
+            <section class="billboard">
+            <?php require('./inc/page.inc.php'); ?>
+            </section>
+        </div>
+
+        <footer>
+        <?php  require BASE_INC . 'footer.inc.php'; ?>
+        </footer>
+    </div>
     <?php
     if(isset($_GET['message'])){
     	echo "
