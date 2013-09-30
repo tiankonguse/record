@@ -19,6 +19,9 @@ if($result && $row = mysql_fetch_array($result)){
 	$title = htmlspecialchars(getDateFromMysql($row['title']));
 	$time = date("Y-m-d",$row['time']);
 	$content = getDateFromMysql($row['content']);
+
+	$tags = getTags($id);
+
 }else{
 	header('Location:index.php?message=error,the post may be deleted.');
 	die();
@@ -44,7 +47,7 @@ require BASE_INC . 'head.inc.php';
                 </div>
                 <?php require './inc/nav.php';?>
             </header>
-            
+
             <section class="billboard">
                 <div class="title sub-title">
                     <h1>
@@ -63,6 +66,16 @@ require BASE_INC . 'head.inc.php';
                         <section class="post">
                         <?php echo $content; ?>
                         </section>
+                        <section class="tag">
+                            <div style="margin-top: 10px;">标签：</div>
+                            <div class="plus-tag tagbtn clearfix">
+                            <?php
+                            foreach($tags as $key=>$val){
+                            	echo "<a title=\"$val\" href=\"".MAIN_DOMAIN."search.php?tag=$val\"><span>$val</span></a>";
+                            }
+                            ?>
+                            </div>
+                        </section>
                     </article>
                 </div>
             </section>
@@ -70,7 +83,7 @@ require BASE_INC . 'head.inc.php';
         <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
         <script src="<?php echo DOMAIN_JS;?>main.js"></script>
         <footer>
-            <?php  require BASE_INC . 'footer.inc.php'; ?>
+        <?php  require BASE_INC . 'footer.inc.php'; ?>
         </footer>
     </div>
 

@@ -12,8 +12,19 @@ $(function() {
 	var reg = /^[0-9]+$/;
 	return reg.test(str);
     }
+    var $tag = jQuery(".plus-tag");
+
+    function getTips() {
+	var b = [];
+	$("a", $tag).each(function() {
+	    b.push($(this).attr("title"));
+	});
+	return b;
+    }
+    ;
 
     $("form").submit(function() {
+	
 	var I = this;
 	var action = I.action, data = {};
 
@@ -30,11 +41,15 @@ $(function() {
 	}
 	data['title'] = $("#title").val();
 	data['time'] = $("#time").val();
-
+	var tag = getTips();
+	data['tags'] = tag.join(",");
+	
 	$.post(action, data, function(d) {
 	    if (d.code == 0) {
 		showMessage(d.message);
-		setTimeout((function(){window.location = "index.php";}),2000);
+		setTimeout((function() {
+		    window.location = "index.php";
+		}), 2000);
 	    } else {
 		showMessage(d.message);
 	    }
@@ -48,13 +63,17 @@ $(function() {
 	    allowPreviewEmoticons : true,
 	    allowImageUpload : true,
 	    minHeight : "300",
-	    items:['source', '|', 'undo', 'redo', '|', 'preview', 'code', 'cut', 'copy', 'paste',
-	   	'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-		'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-		'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
-		'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-		'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image','insertfile', 'table', 'hr', 'emoticons',  'pagebreak',
-		'anchor', 'link', 'unlink']
+	    items : [ 'source', '|', 'undo', 'redo', '|', 'preview', 'code',
+		    'cut', 'copy', 'paste', 'plainpaste', 'wordpaste', '|',
+		    'justifyleft', 'justifycenter', 'justifyright',
+		    'justifyfull', 'insertorderedlist', 'insertunorderedlist',
+		    'indent', 'outdent', 'subscript', 'superscript',
+		    'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen',
+		    '/', 'formatblock', 'fontname', 'fontsize', '|',
+		    'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+		    'strikethrough', 'lineheight', 'removeformat', '|',
+		    'image', 'insertfile', 'table', 'hr', 'emoticons',
+		    'pagebreak', 'anchor', 'link', 'unlink' ]
 	});
     });
 

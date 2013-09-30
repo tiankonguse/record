@@ -9,6 +9,8 @@ if(strcmp($admin,"") == 0){
 	die();
 }
 
+$allTags = getAllTags();
+
 ?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
@@ -58,6 +60,28 @@ require BASE_INC . 'head.inc.php';
                                 class="content"></textarea>
                         </div>
                         <div class="post-line">
+                            <div class="plus-tag tagbtn clearfix"
+                                id="myTags" style="display: none;"></div>
+                            <div class="plus-tag-add">
+                                <span class="label">我的标签：</span> <input
+                                    id="" name="" type="text"
+                                    class="stext" maxlength="20">
+                                <button type="button"
+                                    class="Button RedButton Button18"
+                                    style="font-size: 22px;">添加标签</button>
+                                <a href="javascript:void(0);" class="">展开标签</a>
+                            </div>
+                            <div id="mycard-plus" style="display: none;">
+                                <div class="default-tag tagbtn clearfix">
+                                <?php
+                                foreach($allTags as $key=>$val){
+                                	echo "<a title=\"$val\" href=\"javascript:void(0);\"><span>$val</span><em></em></a>";
+                                }
+                                ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-line">
                             <button class="btn btn-large ">提交</button>
                         </div>
                     </form>
@@ -77,6 +101,7 @@ require BASE_INC . 'head.inc.php';
     <script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
     <script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
     <script src="<?php echo MAIN_DOMAIN;?>js/write.js"></script>
+    <script src="<?php echo MAIN_DOMAIN;?>js/tag.js"></script>
     <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>

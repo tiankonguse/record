@@ -123,9 +123,10 @@ pre.prettyprint {
 .menu-list>li:first-child {
     margin-left: 0;
 }
+
 .menu-list>li:last-child {
     margin-left: 0;
-    float:right;
+    float: right;
 }
 
 .menu-list>li>a {
@@ -156,7 +157,7 @@ pre.prettyprint {
 }
 
 .outer-wrapper {
-    background: #eee;
+    background: #D1D1D1;
     border-top: 2px solid #fff;
 }
 
@@ -195,4 +196,158 @@ footer {
     margin-top: 0px;
     background-color: inherit;
     border-top: inherit;
+}
+
+.default-tag a,.default-tag a span,.plus-tag a,.plus-tag a em,.plus-tag-add a
+    {
+    font: 12px/180% Arial, Helvetica, sans-serif;
+    background: url(../img/tagbg.png) no-repeat;
+}
+
+.tagbtn a {
+    min-width: 40px;
+    color: #333333;
+    display: block;
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    margin: 0 10px 10px 0;
+    padding: 0 10px 0 5px;
+    white-space: nowrap;
+}
+
+.plus-tag {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.plus-tag a {
+    background-position: 100% -22px;
+}
+
+.plus-tag a span {
+    float: left;
+}
+
+.plus-tag a em {
+    display: block;
+    float: left;
+    margin: 5px 0 0 8px;
+    width: 13px;
+    height: 13px;
+    overflow: hidden;
+    background-position: -165px -100px;
+    cursor: pointer;
+}
+
+.plus-tag a:hover em {
+    background-position: -168px -64px;
+}
+
+.plus-tag-add {
+    height: 56px;
+    font-size: 21px;
+    font-weight: 300;
+    margin-top: 30px;
+}
+
+.plus-tag-add  input {
+    width: 200px;
+    background: transparent;
+    border: 1px solid #a4a2a2;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #221919;
+}
+
+.plus-tag-add .Button {
+    border-color: #015E91;
+    background-color: #3693D5;
+    color: #fcf9f9;
+    text-shadow: 0 -1px rgba(34, 25, 25, 0.5);
+    border: 1px solid;
+    opacity: 1;
+    border-radius: .3em;
+    cursor: pointer;
+}
+
+.plus-tag-add a {
+    margin: 12px 0 0 20px;
+    display: inline;
+    font-size: 18px;
+    padding: 0 0 0 16px;
+    background-position: -289px -59px;
+}
+
+.plus-tag-add a.plus {
+    background-position: -289px -96px;
+}
+
+.plus-tag-add a:hover {
+    color: #3366cc !important;
+    text-decoration: none;
+}
+
+.default-tag {
+    margin-bottom: 20px;
+    margin: 16px 0 0 0;
+}
+
+.default-tag .clearfix {
+    display: block;
+}
+
+.default-tag a {
+    background-position: 100% 0;
+}
+
+.default-tag a:hover {
+    background-position: 100% -22px;
+    color: #3366cc !important;
+    text-decoration: none;
+}
+
+.default-tag a.selected {
+    opacity: 0.6;
+    filter: alpha(opacity =               60);
+}
+
+.default-tag a.selected:hover {
+    background-position: 100% 0;
+    cursor: default;
+}
+
+.default-tag a span {
+    padding: 0 0 0 11px;
+    background-position: 0 -60px;
+}
+
+.default-tag a:hover span {
+    background-position: 0 -98px;
+}
+
+.tag .plus-tag {
+    margin-top: 10px;
+}
+
+.tag .plus-tag a {
+    padding: 4px 9px;
+    line-height: 1;
+    background-color: #e6e6e6;
+    border: 1px solid #d6d6d6;
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    white-space: nowrap;
+    margin-right: 5px;
+    background-position: -1000px -1000px;
+}
+
+.tag .plus-tag a:hover {
+    color: #777;
+    background-color: #ccc;
+    border-color: #ccc;
 }
