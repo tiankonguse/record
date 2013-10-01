@@ -70,11 +70,11 @@ require BASE_INC . 'head.inc.php';
                         <div class="post-line">
                             标&nbsp;&nbsp;题： <input id="title"
                                 type="text" placeholder="标 题"
-                                value="<?php echo $_title;?>">
+                                value="<?php echo $_title;?>" class="span5">
                         </div>
                         <div class="post-line">
                             时&nbsp;&nbsp;间： <input id="time" type="text"
-                                value="<?php echo $time;?>">
+                                value="<?php echo $time;?>" class="span5">
                         </div>
                         <div class="post-line">
                             <div style="margin-bottom: 10px;">内容：</div>

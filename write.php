@@ -48,11 +48,11 @@ require BASE_INC . 'head.inc.php';
                         action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=2">
                         <div class="post-line">
                             标&nbsp;&nbsp;题： <input id="title"
-                                type="text" placeholder="标 题">
+                                type="text" placeholder="标 题" class="span5">
                         </div>
                         <div class="post-line">
                             时&nbsp;&nbsp;间： <input id="time" type="text"
-                                value="">
+                                value="" class="span5">
                         </div>
                         <div class="post-line">
                             <div style="margin-bottom: 10px;">内容：</div>

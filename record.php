@@ -48,22 +48,24 @@ require BASE_INC . 'head.inc.php';
                 <?php require './inc/nav.php';?>
             </header>
 
-            <section class="billboard">
-                <div class="title sub-title">
-                    <h1>
+            <section class="billboard" itemscope itemtype="http://schema.org/Article">
+                <div class="title sub-title" itemprop="name">
+                <h1>
+                <a href="<?php echo MAIN_DOMAIN;?>record.php?id=<?php echo $id;?>">
                     <?php echo $title; ?>
+                    </a>
                     </h1>
                 </div>
                 <div class="container">
                     <article class="content">
                         <section class="meta">
                             <span class="time"> posted at <time
-                                    datetime="<?php echo $time;?>">
+                                    datetime="<?php echo $time;?>" itemprop="datePublished" content="<?php echo $time;?>">
                                     <?php echo $time;?>
                                 </time>
                             </span>
                         </section>
-                        <section class="post">
+                        <section class="post" itemprop="articleBody">
                         <?php echo $content; ?>
                         </section>
                         <section class="tag">
