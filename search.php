@@ -19,7 +19,7 @@ $nowPage = $_GET['nowPage'];
 $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
 $tagId = $_GET['tagId'];
-$baseurl = ".?tag=$tag&";
+$baseurl = "search.php?tag=$tag&";
 ?>
 
 <!DOCTYPE HTML>

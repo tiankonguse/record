@@ -1,49 +1,49 @@
 <?php
 
 function getRecordNum(){
-    global $conn;
-    //操作数据库
-    $sql = "select count(*) num from `record_record`";
-    $result = mysql_query($sql ,$conn);
-    $row= mysql_fetch_array($result);
-    return $row['num'];
+	global $conn;
+	//操作数据库
+	$sql = "select count(*) num from `record_record`";
+	$result = mysql_query($sql ,$conn);
+	$row= mysql_fetch_array($result);
+	return $row['num'];
 }
 function getRecordNumByTagId($tagId){
-    global $conn;
-    //操作数据库
-    $sql = "select count(*) num from `record_tag_map` where tag_id = '$tagId'";
-    $result = mysql_query($sql ,$conn);
-    $row= mysql_fetch_array($result);
-    return $row['num'];
+	global $conn;
+	//操作数据库
+	$sql = "select count(*) num from `record_tag_map` where tag_id = '$tagId'";
+	$result = mysql_query($sql ,$conn);
+	$row= mysql_fetch_array($result);
+	return $row['num'];
 }
 
 function getTagId($tag){
-    global $conn;
-    //操作数据库
-    $sql = "select id from `record_tag` where name = '$tag'";
-    $result = mysql_query($sql ,$conn);
-    $row= mysql_fetch_array($result);
-    return $row['id'];
+	global $conn;
+	//操作数据库
+	$sql = "select id from `record_tag` where name = '$tag'";
+	$result = mysql_query($sql ,$conn);
+	$row= mysql_fetch_array($result);
+	return $row['id'];
 }
 
 function initTagPage($tag, $pageSize){
-    $_GET['pageSize'] = $pageSize;
-    $tagId = getTagId($tag);
-    $_GET['tagId'] = $tagId;
+	$_GET['pageSize'] = $pageSize;
+	$tagId = getTagId($tag);
+	$_GET['tagId'] = $tagId;
 
-    $allPageNum = intval((getRecordNumByTagId($tagId) + $pageSize - 1) / $pageSize);
-    $_GET['allPageNum'] = $allPageNum;
+	$allPageNum = intval((getRecordNumByTagId($tagId) + $pageSize - 1) / $pageSize);
+	$_GET['allPageNum'] = $allPageNum;
 
-    $nowPage = 1;
-    if(isset($_GET['nowPage'])){
-        $nowPage = intval($_GET['nowPage']);
-    }
-    if($nowPage <= 0){
-        $nowPage = 1;
-    }else if($nowPage > $allPageNum){
-        $nowPage = $allPageNum;
-    }
-    $_GET['nowPage'] = $nowPage;
+	$nowPage = 1;
+	if(isset($_GET['nowPage'])){
+		$nowPage = intval($_GET['nowPage']);
+	}
+	if($nowPage <= 0){
+		$nowPage = 1;
+	}else if($nowPage > $allPageNum){
+		$nowPage = $allPageNum;
+	}
+	$_GET['nowPage'] = $nowPage;
 }
 
 function initPage($pageSize){
@@ -81,6 +81,10 @@ function login(){
 		$password = sha1(SALT . $_POST['password']);
 
 		$_verifyCode = $_SESSION['verifyCode'];
+		
+		$verifyCode = strtolower($verifyCode);
+		$_verifyCode = strtolower($_verifyCode);
+
 		if(strcmp($_verifyCode, $verifyCode) != 0){
 			return output(OUTPUT_ERROR,"验证码不正确");        
 		}else if($username == 'tiankonguse' && $password == 'dcd3eeb3b04e6d3fc4247bfec3a614ec86fe9db7' ){
@@ -173,7 +177,7 @@ function addTags($recordId, $tags){
 
 function updateTags($recordId, $tags){
 	global $conn;
-    $sql = "delete from `record_tag_map` where record_id = '$recordId' ";
+	$sql = "delete from `record_tag_map` where record_id = '$recordId' ";
 	$result = mysql_query($sql ,$conn);
 	addTags($recordId, $tags);
 }
