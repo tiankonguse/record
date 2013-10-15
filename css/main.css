@@ -312,9 +312,9 @@ footer {
 
 .default-tag a.selected {
     opacity: 0.6;
-    filter: alpha(opacity =         
+    filter: alpha(opacity =           
                                                                  
-                   60);
+                     60);
 }
 
 .default-tag a.selected:hover {
@@ -427,17 +427,19 @@ ul.unitList {
 }
 
 .unitList .unit .mask .tags {
-    position: absolute;
-    left: 15px;
-    bottom: 0px;
+    position: relative;
+    top: 5px;
+    left: 5px;
     line-height: 1.5em;
     width: 160px;
-    height: 100px;
-    overflow: hidden;
 }
 
 .unitList .unit .mask .tags span {
-    margin: 0 6px 0 0;
+    padding: 1px 4px 1px 4px;
+}
+
+.unitList .unit .mask .tags span:hover {
+    background-color: rgb(95, 92, 92);
 }
 
 .unitList .unit .mask .edit-tag-btn {
@@ -557,7 +559,7 @@ ul.unitList {
     border-color: transparent;
 }
 
-.loader{
+.loader {
     width: 100%;
     height: 60px;
     background: url(../img/loader.gif) no-repeat center #FFF;
@@ -566,4 +568,3 @@ ul.unitList {
     left: 0;
     display: none;
 }
-

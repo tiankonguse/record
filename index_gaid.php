@@ -53,7 +53,7 @@ require BASE_INC . 'head.inc.php';
                     	$title = htmlspecialchars($title);
                     	$title = preg_replace('/&nbsp;/i','',$title);
                     	
-                    	$title = mb_substr($title,0,19,'utf8');
+                    	$title = mb_substr($title,0,14,'utf8');
 
                     	$time = date("Y-m-d",$time);
                     	$alter = "";
@@ -139,7 +139,7 @@ require BASE_INC . 'head.inc.php';
             
             $(".unitList .unit").bind("click",function(){
                 var id = $(this).attr("rid");
-                window.location.href= "<?php echo MAIN_DOMAIN; ?>record.php?id=<?php echo $id;?>";
+                window.location.href= "<?php echo MAIN_DOMAIN; ?>record.php?id=" + id;
             });
 
             $(".unitList .unit").mouseout(function(){
