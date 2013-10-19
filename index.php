@@ -57,17 +57,19 @@ require BASE_INC . 'head.inc.php';
                     	}
 
                     	$alter = "";
-                    	$len = 630;
+                    	$len = 36;
                     	if(strcmp($admin,"record_admin") == 0){
                     		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
                     		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
-                    		$len = 600;
+                    		$len = 33;
                     	}
+                    	$showTitle = htmlspecialchars($title);
+                    	$showTitle = mb_substr($showTitle, 0, $len, 'utf-8');
                     	echo "
                     <li class=\"listing-item\">
-                        <div style=\"float: left; \"><time datetime='$time'>$time</time></div>
-                        <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\">".htmlspecialchars($title)."</a></div>
-                        <div style=\"float: right;\">$alter</div>
+                        <div class=\"left\"><time datetime='$time'>$time</time></div>
+                        <div class=\"item-title\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\">$showTitle</a></div>
+                        <div class=\"right\">$alter</div>
                     </li>";
                     }
                     ?>

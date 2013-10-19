@@ -3,12 +3,11 @@
 	margin: 3px;
 }
 
-.listing-item .volume {
-	min-width: 100px;
-}
-
-.listing-item .volume-title {
-	min-width: 600px;
+.listing-item .item-title {
+	overflow: hidden;
+	display: inline-block;
+	white-space: nowrap;
+	width: auto;
 }
 
 .listing-item a {
@@ -312,9 +311,9 @@ footer {
 
 .default-tag a.selected {
 	opacity: 0.6;
-	filter: alpha(opacity =            
+	filter: alpha(opacity =             
                                                                  
-                      60);
+                       60);
 }
 
 .default-tag a.selected:hover {
@@ -567,4 +566,12 @@ ul.unitList {
 	bottom: 0;
 	left: 0;
 	display: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
