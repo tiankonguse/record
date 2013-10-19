@@ -1,5 +1,5 @@
 <nav class="menu-wrapper">
-    <ul class="menu-list">
+    <ul class="menu-list clearfix">
         <li><a href="<?php echo MAIN_DOMAIN;?>">主页</a></li>
         <li><a href="<?php echo MAIN_DOMAIN;?>index_gaid.php">方格主页</a></li>
         <li><a href="<?php echo MAIN_DOMAIN;?>write.php">记下这一刻</a></li>
