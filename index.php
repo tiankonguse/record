@@ -9,7 +9,7 @@ initPage(15);
 $nowPage = $_GET['nowPage'];
 $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
-$baseurl = ".?";
+$baseurl = MAIN_DOMAIN."index.php?";
 ?>
 
 <!DOCTYPE HTML>
