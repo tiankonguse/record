@@ -18,7 +18,6 @@ if ($result && $row = mysql_fetch_array ( $result )) {
     $title = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
     $time = date ( "Y-m-d", $row ['time'] );
     $content = getDateFromMysql ( $row ['content'] );
-    
     $tags = getTags ( $id );
 } else {
     header ( 'Location:index.php?message=error,the post may be deleted.' );
@@ -58,13 +57,21 @@ require BASE_INC . 'head.inc.php';
 				</div>
 				<div class="container">
 					<article class="content">
-						<section class="meta">
+						<section class="meta clearfix">
 							<span class="time"> posted at <time
 									datetime="<?php echo $time;?>" itemprop="datePublished"
 									content="<?php echo $time;?>">
                                     <?php echo $time;?>
                                 </time>
 							</span>
+							
+							<?php
+    
+    if (strcmp ( $admin, "record_admin" ) == 0) {
+        echo "<span class=\"right\"><a href='" . MAIN_DOMAIN . "alter.php?id=$id'>修改</a>	</span>";
+    }
+    ?>
+							
 						</section>
 						<section class="post" itemprop="articleBody">
                         <?php echo $content; ?>
