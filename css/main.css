@@ -238,6 +238,7 @@ footer {
 	width: 13px;
 	height: 13px;
 	overflow: hidden;
+	
 	background-position: -165px -100px;
 	cursor: pointer;
 }
@@ -344,6 +345,7 @@ footer {
 	font-size: 12px;
 	letter-spacing: normal;
 	word-spacing: normal;
+	border-radius: 10px;
 	white-space: nowrap;
 	margin-right: 5px;
 	background-position: -1000px -1000px;
