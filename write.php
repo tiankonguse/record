@@ -59,7 +59,7 @@ require BASE_INC . 'head.inc.php';
                             <textarea name="content" id="content"
                                 class="content"></textarea>
                         </div>
-                        <div class="post-line">
+                        <div class="post-line tag">
                             <div class="plus-tag tagbtn clearfix"
                                 id="myTags" style="display: none;"></div>
                             <div class="plus-tag-add">
@@ -75,7 +75,7 @@ require BASE_INC . 'head.inc.php';
                                 <div class="default-tag tagbtn clearfix">
                                 <?php
                                 foreach($allTags as $key=>$val){
-                                	echo "<a title=\"$val\" href=\"javascript:void(0);\"><span>$val</span><em></em></a>";
+                                	echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
                                 }
                                 ?>
                                 </div>
@@ -105,3 +105,4 @@ require BASE_INC . 'head.inc.php';
     <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 </body>
 </html>
+<?php require BASE_INC . "end.php";?>

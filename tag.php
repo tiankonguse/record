@@ -18,7 +18,7 @@ $allTags = getAllTags();
 <html lang="zh-cn">
 <head>
 <?php
-$title = "tiankonguse' record";
+$title = "tiankonguse' tag";
 require BASE_INC . 'head.inc.php';
 ?>
 <link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
@@ -41,7 +41,7 @@ require BASE_INC . 'head.inc.php';
                 <div class="plus-tag tagbtn clearfix">
                 <?php
                 foreach($allTags as $key=>$val){
-                	echo "<a title=\"$val\" href=\"".MAIN_DOMAIN."search.php?tag=$val\"><span>$val</span></a>";
+                	echo "<a title=\"$val\" href=\"".MAIN_DOMAIN."search.php?tag=$val\" style=\"".getColor().getFontSize()."\" ><span>$val</span></a>";
                 }
                 ?>
                 </div>
@@ -74,3 +74,24 @@ require BASE_INC . 'head.inc.php';
 
 </body>
 </html>
+<?php 
+
+function getColor(){
+	$str = "0123456789ABCDEF";
+	$output = " color : #";
+	for($i=0;$i<6;$i++){
+		$output .= $str[mt_rand(0, strlen($str)-1)];
+	}
+	$output .= "; ";
+	return $output;
+}
+
+function getFontSize(){
+	$output = " font-size : ";
+	$output .= mt_rand(8, 32);
+	$output .= "px; ";
+	return $output;
+}
+
+?>
+<?php require BASE_INC . "end.php";?>

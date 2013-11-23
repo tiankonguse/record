@@ -150,3 +150,4 @@ require BASE_INC . 'head.inc.php';
     </script>
 </body>
 </html>
+<?php require BASE_INC . "end.php";?>

@@ -1,7 +1,7 @@
 <?php
 if (! isset ( $_GET ["id"] )) {
-    header ( 'Location:index.php?message=非法操作' );
-    die ();
+	header ( 'Location:index.php?message=非法操作' );
+	die ();
 }
 
 session_start ();
@@ -15,13 +15,39 @@ $id = intval ( $_GET ["id"] );
 $sql = "select * from `record_record` where `id` = '$id'";
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
-    $title = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
-    $time = date ( "Y-m-d", $row ['time'] );
-    $content = getDateFromMysql ( $row ['content'] );
-    $tags = getTags ( $id );
+	$title = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
+	$time = date ( "Y-m-d", $row ['time'] );
+	$content = getDateFromMysql ( $row ['content'] );
+	$tags = getTags ( $id );
 } else {
-    header ( 'Location:index.php?message=error,the post may be deleted.' );
-    die ();
+	header ( 'Location:index.php?message=error,the post may be deleted.' );
+	die ();
+}
+
+$sql = "select * from `record_record`  where `id` > '$id' ORDER BY  `id` ASC  limit 0,1";
+// var_dump($sql);
+$result = mysql_query ( $sql, $conn );
+if ($result && $row = mysql_fetch_array ( $result )) {
+	$preTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
+	$preLink = MAIN_DOMAIN . "record.php?id=" . $row ['id'];
+	$preText = "<a href=\"$preLink\" target=\"_blank\">$preTitle</a>";
+} else {
+	$preTitle = "前面没有了";
+	$preLink = MAIN_DOMAIN;
+	$preText = "<a href=\"$preLink\" target=\"_blank\">$preTitle</a>";
+}
+
+$sql = "select * from `record_record` where `id` < '$id' ORDER BY  `id` DESC limit 0,1";
+// var_dump($sql);
+$result = mysql_query ( $sql, $conn );
+if ($result && $row = mysql_fetch_array ( $result )) {
+	$nextTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
+	$nextLink = MAIN_DOMAIN . "record.php?id=" . $row ['id'];
+	$nextText = "<a href=\"$nextLink\" target=\"_blank\">$nextTitle</a>";
+} else {
+	$nextTitle = "后面没有了";
+	$nextLink = MAIN_DOMAIN;
+	$nextText = "<a href=\"$nextLink\" target=\"_blank\">$nextTitle</a>";
 }
 
 ?>
@@ -66,25 +92,36 @@ require BASE_INC . 'head.inc.php';
 							</span>
 							
 							<?php
-    
-    if (strcmp ( $admin, "record_admin" ) == 0) {
-        echo "<span class=\"right\"><a href='" . MAIN_DOMAIN . "alter.php?id=$id'>修改</a>	</span>";
-    }
-    ?>
+							
+							if (strcmp ( $admin, "record_admin" ) == 0) {
+								echo "<span class=\"right\"><a href='" . MAIN_DOMAIN . "alter.php?id=$id'>修改</a>	</span>";
+							}
+							?>
 							
 						</section>
+
 						<section class="post" itemprop="articleBody">
                         <?php echo $content; ?>
                         </section>
 						<section class="tag">
 							<div style="margin-top: 10px;">标签：</div>
 							<div class="plus-tag tagbtn clearfix">
-                            <?php
-                            foreach ( $tags as $key => $val ) {
-                                echo "<a title=\"$val\" href=\"" . MAIN_DOMAIN . "search.php?tag=$val\"><span>$val</span></a>";
-                            }
-                            ?>
+<?php
+foreach ( $tags as $key => $val ) {
+	echo "<a title=\"$val\" href=\"" . MAIN_DOMAIN . "search.php?tag=$val\" class=\"handcursor\"><span>$val</span></a>";
+}
+?>
                             </div>
+						</section>
+						<section>
+							<div class="mod-detail-pager clearfix">
+								<div class="detail-nav-pre left">
+									上一篇：<?php echo $preText;?>
+								</div>
+								<div class="detail-nav-next right">
+									下一篇：<?php echo $nextText;?>
+								</div>
+							</div>
 						</section>
 						<section>
 							<div id="disqus_thread"></div>
@@ -103,6 +140,7 @@ require BASE_INC . 'head.inc.php';
 
 
 					</article>
+
 				</div>
 			</section>
 		</div>
@@ -170,3 +208,4 @@ require BASE_INC . 'head.inc.php';
 </body>
 </html>
 
+<?php require BASE_INC . "end.php";?>

@@ -64,7 +64,7 @@ require BASE_INC . 'head.inc.php';
                     		$len = 33;
                     	}
                     	$showTitle = htmlspecialchars($title);
-                    	$showTitle = mb_substr($showTitle, 0, $len, 'utf-8');
+//                     	$showTitle = mb_substr($showTitle, 0, $len, 'utf-8');
                     	echo "
                     <li class=\"listing-item\">
                         <div class=\"left\"><time datetime='$time'>$time</time></div>
@@ -107,3 +107,4 @@ require BASE_INC . 'head.inc.php';
 
 </body>
 </html>
+<?php require BASE_INC . "end.php";?>
