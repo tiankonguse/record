@@ -97,7 +97,7 @@ pre.prettyprint {
 	font: 12px/1.5 Monaco, "Andale Mono", "Lucida Console",
 		"Bitstream Vera Sans Mono", "Courier New", monospace;
 	border: 1px dashed #CCC;
-	background-color: #5C5C5C;
+	background-color: #000000;
 }
 
 .inner-wrapper>header {
