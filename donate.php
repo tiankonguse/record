@@ -28,13 +28,26 @@ require BASE_INC . 'head.inc.php';
 
 			<section class="billboard">
 				<div class="container about-me">
-					<h1 class="entry-title">关于本站</h1>
+					<h1 class="entry-title">捐赠本站</h1>
 					<div class="entry-content">
-						<h3>简介</h3>
 						<p>
-							本站是tiankonguse 的个人网站。
-
+						如果您觉得本站对您非常有用，您可以考虑通过捐赠来支持我们。	
 						</p>
+						<p>
+						您的捐赠将帮助我们应付日益增长的主机和带宽费用，使我们在未来能够提供更加丰富的内容。
+						</p>
+						<p>
+						我们非常感谢您的捐赠与支持。捐赠后可以QQ告知。
+						</p>
+						<p>
+						QQ:804345178 
+						</p>
+						<p align="center">
+							<a href="https://me.alipay.com/tiankonguse">
+			                	<img alt="" src="<?php echo DOMAIN_IMG?>donate.jpg">
+							</a>
+						</p>
+					</div>
 				</div>
 			</section>
 			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>

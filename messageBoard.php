@@ -26,16 +26,21 @@ require BASE_INC . 'head.inc.php';
                 <?php require './inc/nav.php';?>
             </header>
 
-			<section class="billboard">
-				<div class="container about-me">
-					<h1 class="entry-title">关于本站</h1>
-					<div class="entry-content">
-						<h3>简介</h3>
-						<p>
-							本站是tiankonguse 的个人网站。
-
-						</p>
-				</div>
+			<section>
+				<h3>留言</h3><a href="http://tiankonguse.com/lab/AKeyToSend/" style="color: red;">给我发短信</a>
+				
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+	            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	               var disqus_shortname = 'tiankonguse-record'; // required: replace example with your forum shortname
+	   
+	             /* * * DON'T EDIT BELOW THIS LINE * * */
+	             (function() {
+	               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	              })();
+	             </script>
 			</section>
 			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		</div>

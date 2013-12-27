@@ -40,6 +40,7 @@ require BASE_INC . 'head.inc.php';
                 <div class="title">
                     <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?>
                     </a>
+					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
                 </div>
                 <?php require './inc/nav.php';?>
             </header>

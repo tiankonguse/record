@@ -39,6 +39,7 @@ $(function() {
 	    showMessage("内容不能为空");
 	    return false;
 	}
+//	console.log(data['content']);
 	data['title'] = $("#title").val();
 	data['time'] = $("#time").val();
 	var tag = getTips();
@@ -62,6 +63,7 @@ $(function() {
 	    resizeType : 1,
 	    allowPreviewEmoticons : true,
 	    allowImageUpload : true,
+	    allowFileManager : true,
 	    minHeight : "300",
 	    items : [ 'source', '|', 'undo', 'redo', '|', 'preview', 'code',
 		    'cut', 'copy', 'paste', 'plainpaste', 'wordpaste', '|',

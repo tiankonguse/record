@@ -17,14 +17,17 @@ $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$title = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
 	$time = date ( "Y-m-d", $row ['time'] );
+	$t = $row ['time'];
+
 	$content = getDateFromMysql ( $row ['content'] );
+	//var_dump($content, $row ['content']);
 	$tags = getTags ( $id );
 } else {
 	header ( 'Location:index.php?message=error,the post may be deleted.' );
 	die ();
 }
 
-$sql = "select * from `record_record`  where `id` > '$id' ORDER BY  `id` ASC  limit 0,1";
+$sql = "select * from `record_record`  where `time` > '$t' ORDER BY  `time` ASC  limit 0,1";
 // var_dump($sql);
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
@@ -37,7 +40,7 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 	$preText = "<a href=\"$preLink\" target=\"_blank\">$preTitle</a>";
 }
 
-$sql = "select * from `record_record` where `id` < '$id' ORDER BY  `id` DESC limit 0,1";
+$sql = "select * from `record_record` where `time` < '$t' ORDER BY  `time` DESC limit 0,1";
 // var_dump($sql);
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
@@ -62,23 +65,26 @@ require BASE_INC . 'head.inc.php';
 <link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
 </head>
 <body>
-<?php //require BASE_INC . 'rain.php';?>
-    <div class="outer-wrapper">
+
+
+
+	<?php //require BASE_INC . 'rain.php';?>
+	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
 					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
+					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
 				</div>
-                <?php require './inc/nav.php';?>
-            </header>
+				<?php require './inc/nav.php';?>
+			</header>
 
-			<section class="billboard" itemscope
-				itemtype="http://schema.org/Article">
+			<section class="billboard" itemscope itemtype="http://schema.org/Article">
 				<div class="title sub-title" itemprop="name">
 					<h1>
 						<a href="<?php echo MAIN_DOMAIN;?>record.php?id=<?php echo $id;?>">
-                            <?php echo $title; ?>
-                        </a>
+							<?php echo $title; ?>
+						</a>
 					</h1>
 				</div>
 				<div class="container">
@@ -87,39 +93,41 @@ require BASE_INC . 'head.inc.php';
 							<span class="time"> posted at <time
 									datetime="<?php echo $time;?>" itemprop="datePublished"
 									content="<?php echo $time;?>">
-                                    <?php echo $time;?>
-                                </time>
+									<?php echo $time;?>
+								</time>
 							</span>
-							
+
 							<?php
-							
+
 							if (strcmp ( $admin, "record_admin" ) == 0) {
 								echo "<span class=\"right\"><a href='" . MAIN_DOMAIN . "alter.php?id=$id'>修改</a>	</span>";
 							}
 							?>
-							
+
 						</section>
 
 						<section class="post" itemprop="articleBody">
-                        <?php echo $content; ?>
-                        </section>
+							<?php echo $content; ?>
+						</section>
 						<section class="tag">
 							<div style="margin-top: 10px;">标签：</div>
 							<div class="plus-tag tagbtn clearfix">
-<?php
-foreach ( $tags as $key => $val ) {
+								<?php
+								foreach ( $tags as $key => $val ) {
 	echo "<a title=\"$val\" href=\"" . MAIN_DOMAIN . "search.php?tag=$val\" class=\"handcursor\"><span>$val</span></a>";
 }
 ?>
-                            </div>
+							</div>
 						</section>
 						<section>
 							<div class="mod-detail-pager clearfix">
 								<div class="detail-nav-pre left">
-									上一篇：<?php echo $preText;?>
+									上一篇：
+									<?php echo $preText;?>
 								</div>
 								<div class="detail-nav-next right">
-									下一篇：<?php echo $nextText;?>
+									下一篇：
+									<?php echo $nextText;?>
 								</div>
 							</div>
 						</section>
@@ -201,8 +209,8 @@ foreach ( $tags as $key => $val ) {
          })();
         </script>
 		<footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
-        </footer>
+			<?php  require BASE_INC . 'footer.inc.php'; ?>
+		</footer>
 	</div>
 
 </body>
