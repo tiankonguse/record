@@ -17,3 +17,4 @@
         
     </ul>
 </nav>
+<?php require("./inc/menu.php");?>

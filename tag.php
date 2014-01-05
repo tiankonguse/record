@@ -25,54 +25,53 @@ require BASE_INC . 'head.inc.php';
 
 </head>
 <body>
-<?php //require BASE_INC . 'rain.php';?>
-    <div class="outer-wrapper">
-        <div class="inner-wrapper">
-            <header>
-                <div class="title">
-                    <a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?>
-                    </a>
-					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-                </div>
-                <?php require './inc/nav.php';?>
-            </header>
+	<?php //require BASE_INC . 'rain.php';?>
+	<div class="outer-wrapper">
+		<div class="inner-wrapper">
+			<header>
+				<div class="title">
+					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
+						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+				</div>
+				<?php require './inc/nav.php';?>
+			</header>
 
-            <section class="tag billboard">
-                <div style="margin-top: 10px;">标签：</div>
-                <div class="plus-tag tagbtn clearfix">
-                <?php
-                foreach($allTags as $key=>$val){
+			<section class="tag billboard">
+				<div style="margin-top: 10px;">标签：</div>
+				<div class="plus-tag tagbtn clearfix">
+					<?php
+					foreach($allTags as $key=>$val){
                 	echo "<a title=\"$val\" href=\"".MAIN_DOMAIN."search.php?tag=$val\" style=\"".getColor().getFontSize()."\" ><span>$val</span></a>";
                 }
                 ?>
-                </div>
-            </section>
-            <script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
+				</div>
+			</section>
+			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 
-        </div>
+		</div>
 
-        <footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
-        </footer>
-    </div>
-    <?php
-    if(isset($_GET['message'])){
+		<footer>
+			<?php  require BASE_INC . 'footer.inc.php'; ?>
+		</footer>
+	</div>
+	<?php
+	if(isset($_GET['message'])){
     	echo "
-            <script>
-                $(function(){
-                    var _state = {
-                        title:'',
-                        url:window.location.href.split('?')[0]
+    	<script>
+    	$(function(){
+    	var _state = {
+    	title:'',
+    	url:window.location.href.split('?')[0]
                     };
                     history.pushState(_state,'','?nowPage=$nowPage');
                     showMessage('" . htmlspecialchars($_GET['message']) . "');
                 });
-            </script>";
+		</script>";
     }
 
     ?>
-    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
-
+	<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 </body>
 </html>
 <?php 

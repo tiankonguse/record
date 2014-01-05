@@ -65,7 +65,7 @@ require BASE_INC . 'head.inc.php';
 				}
 				
 				?>
-    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
-
+    <script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
+<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 </body>
 </html>

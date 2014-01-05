@@ -108,7 +108,7 @@ pre.prettyprint {
 .menu-wrapper {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
-	background: #FFFFFF;
+	background: #F3F3E4;
 }
 
 .menu-list {
@@ -176,7 +176,7 @@ pre.prettyprint {
 	-webkit-box-shadow: 0 0 0 1px #fff inset;
 	-moz-box-shadow: 0 0 0 1px #fff inset;
 	box-shadow: 0 0 0 1px #fff inset;
-	background: #fff;
+	background: #F3F3E4;
 	border-bottom: 1px solid #ddd;
 	display: block;
 	padding-left: 20px;
@@ -188,7 +188,7 @@ footer {
 	padding: 10px 0;
 	font-size: .875em;
 	line-height: 1.285;
-	background: #fff;
+	background: #F3F3E4;
 	width: 100%;
 	margin: 1em 0 0;
 }
@@ -309,7 +309,7 @@ footer {
 
 .default-tag a.selected {
 	opacity: 0.6;
-	filter: alpha(opacity = 60);
+	filter: alpha(opacity =   60);
 }
 
 .default-tag a.selected:hover {
@@ -330,7 +330,7 @@ footer {
 	margin-top: 10px;
 }
 
-.tag .plus-tag a, .tag .default-tag a {
+.tag .plus-tag a,.tag .default-tag a {
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
@@ -357,7 +357,7 @@ footer {
 	background-position: -1000px -1000px;
 }
 
-.tag .plus-tag a:hover ,.tag .default-tag a:hover {
+.tag .plus-tag a:hover,.tag .default-tag a:hover {
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -634,7 +634,6 @@ ul.unitList {
 	display: inline-block;
 }
 
-
 a:hover {
 	color: #000000;
 	-webkit-transition: color .15s linear, background-color .3s linear;
@@ -642,4 +641,78 @@ a:hover {
 	-o-transition: color .15s linear, background-color .3s linear;
 	-ms-transition: color .15s linear, background-color .3s linear;
 	transition: color .15s linear, background-color .3s linear;
+}
+
+/* dock */
+#dock {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	position: fixed;
+	top: 0px;
+	height: 100%;
+	z-index: 100;
+	background-color: #E2E2E2;
+	left: 0px;
+}
+
+#dock>li {
+	padding-top: 50px;
+	width: 40px;
+	height: 120px;
+	margin: 0 0 1px 0;
+	background-color: #dcdcdc;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+#dock>li:hover {
+	background-position: -40px 0px;
+}
+
+/* panels */
+#dock ul li {
+	padding: 5px;
+	border: solid 1px #F1F1F1;
+}
+
+#dock ul li:hover {
+	background: #D3DAED repeat-x;
+	border: solid 1px #A8D8EB;
+}
+
+#dock ul li.header,#dock ul li .header:hover {
+	background: #D3DAED repeat-x;
+	border: solid 1px #F1F1F1;
+}
+
+#dock>li:hover ul {
+	display: block;
+}
+
+#dock>li ul {
+	position: absolute;
+	top: 0px;
+	left: -180px;
+	z-index: -1;
+	width: 100px;
+	display: none;
+	background-color: #F1F1F1;
+	border: solid 1px #969696;
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+#dock>li ul.docked {
+	display: block;
+	z-index: -2;
+}
+
+.dock-keleyi-com,.undock {
+	float: right;
+}
+
+.undock {
+	display: none;
 }

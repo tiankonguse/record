@@ -124,9 +124,10 @@ require BASE_INC . 'head.inc.php';
 		src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-timepicker-addon.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/write.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js"></script>
-	<script src="<?php echo DOMAIN_JS;?>main.js"></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/write.js"  ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async ></script>
+	<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>

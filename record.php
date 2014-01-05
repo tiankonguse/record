@@ -73,13 +73,14 @@ require BASE_INC . 'head.inc.php';
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
-					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse' record</a> <span
+						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
 				</div>
 				<?php require './inc/nav.php';?>
 			</header>
 
-			<section class="billboard" itemscope itemtype="http://schema.org/Article">
+			<section class="billboard" itemscope
+				itemtype="http://schema.org/Article">
 				<div class="title sub-title" itemprop="name">
 					<h1>
 						<a href="<?php echo MAIN_DOMAIN;?>record.php?id=<?php echo $id;?>">
@@ -153,9 +154,10 @@ require BASE_INC . 'head.inc.php';
 			</section>
 		</div>
 		<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-		<script src="<?php echo DOMAIN_JS;?>main.js"></script>
+		<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
+		<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 		<div id="append_parent"></div>
-		<script src="<?php echo DOMAIN_JS;?>showImg.js"></script>
+		<script src="<?php echo DOMAIN_JS;?>showImg.js" ></script>
 		<script type="text/javascript">
         addZoom(".content .post img");
         (function(){

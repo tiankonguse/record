@@ -15,52 +15,50 @@ require BASE_INC . 'head.inc.php';
 
 </head>
 <body>
-<?php //require BASE_INC . 'rain.php';?>
-    <div class="outer-wrapper">
+	<?php //require BASE_INC . 'rain.php';?>
+	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
-					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
+						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
 				</div>
-                <?php require './inc/nav.php';?>
-            </header>
+				<?php require './inc/nav.php';?>
+			</header>
 
 			<section class="billboard">
 				<div class="container about-me">
 					<h1 class="entry-title">关于本站</h1>
 					<div class="entry-content">
 						<h3>简介</h3>
-						<p>
-							本站是tiankonguse 的个人网站。
-
-						</p>
+						<p>本站是tiankonguse 的个人网站。</p>
+					</div>
 				</div>
 			</section>
 			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		</div>
 
 		<footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
-        </footer>
+			<?php  require BASE_INC . 'footer.inc.php'; ?>
+		</footer>
 	</div>
-    <?php
-				if (isset ( $_GET ['message'] )) {
+	<?php
+	if (isset ( $_GET ['message'] )) {
 					echo "
-            <script>
-                $(function(){
-                    var _state = {
-                        title:'',
-                        url:window.location.href.split('?')[0]
+					<script>
+					$(function(){
+					var _state = {
+					title:'',
+					url:window.location.href.split('?')[0]
                     };
                     history.pushState(_state,'','?nowPage=$nowPage');
                     showMessage('" . htmlspecialchars ( $_GET ['message'] ) . "');
                 });
-            </script>";
+			</script>";
 				}
-				
-				?>
-    <script src="<?php echo DOMAIN_JS;?>main.js"></script>
 
+				?>
+	<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 </body>
 </html>

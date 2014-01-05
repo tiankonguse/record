@@ -149,6 +149,7 @@ require BASE_INC . 'head.inc.php';
             
         });
     </script>
+    <script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>
