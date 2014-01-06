@@ -19,7 +19,9 @@ $allTags = getAllTags();
 $title = "写新记录";
 require BASE_INC . 'head.inc.php';
 ?>
-<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
+<script type="text/javascript">
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+</script>
 <link rel="stylesheet"
 	href="<?php echo DOMAIN_datepicker;?>css/jquery-ui.css" />
 <link rel="stylesheet"
@@ -96,10 +98,12 @@ require BASE_INC . 'head.inc.php';
 		src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-timepicker-addon.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/write.js" async ></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async ></script>
-	<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/write.js" async></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async></script>
+	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
+	</script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>

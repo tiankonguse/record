@@ -62,13 +62,11 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 require BASE_INC . 'head.inc.php';
 ?>
 <meta name="keywords" content="<?php echo implode(",",$tags);?>">
-<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
+<script type="text/javascript">
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+</script>
 </head>
 <body>
-
-
-
-	<?php //require BASE_INC . 'rain.php';?>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
@@ -153,11 +151,12 @@ require BASE_INC . 'head.inc.php';
 				</div>
 			</section>
 		</div>
-		<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-		<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
-		<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
+		<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
+	</script>
 		<div id="append_parent"></div>
-		<script src="<?php echo DOMAIN_JS;?>showImg.js" ></script>
+		<script src="<?php echo DOMAIN_JS;?>showImg.js"></script>
 		<script type="text/javascript">
         addZoom(".content .post img");
         (function(){

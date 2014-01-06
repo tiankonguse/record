@@ -11,24 +11,26 @@ require ("./inc/function.php");
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
-<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
-
+<script type="text/javascript">
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+</script>
 </head>
 <body>
-<?php //require BASE_INC . 'rain.php';?>
-    <div class="outer-wrapper">
+	<?php //require BASE_INC . 'rain.php';?>
+	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
-					<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
+						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
 				</div>
-                <?php require './inc/nav.php';?>
-            </header>
+				<?php require './inc/nav.php';?>
+			</header>
 
 			<section>
-				<h3>留言</h3><a href="http://tiankonguse.com/lab/AKeyToSend/" style="color: red;">给我发短信</a>
-				
+				<h3>留言</h3>
+				<a href="http://tiankonguse.com/lab/AKeyToSend/" style="color: red;">给我发短信</a>
+
 				<div id="disqus_thread"></div>
 				<script type="text/javascript">
 	            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -46,26 +48,28 @@ require BASE_INC . 'head.inc.php';
 		</div>
 
 		<footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
-        </footer>
+			<?php  require BASE_INC . 'footer.inc.php'; ?>
+		</footer>
 	</div>
-    <?php
-				if (isset ( $_GET ['message'] )) {
+	<?php
+	if (isset ( $_GET ['message'] )) {
 					echo "
-            <script>
-                $(function(){
-                    var _state = {
-                        title:'',
-                        url:window.location.href.split('?')[0]
+					<script>
+					$(function(){
+					var _state = {
+					title:'',
+					url:window.location.href.split('?')[0]
                     };
                     history.pushState(_state,'','?nowPage=$nowPage');
                     showMessage('" . htmlspecialchars ( $_GET ['message'] ) . "');
                 });
-            </script>";
+			</script>";
 				}
-				
+
 				?>
-    <script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
-<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
+	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
+	</script>
 </body>
 </html>

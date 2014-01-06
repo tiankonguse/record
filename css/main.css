@@ -202,7 +202,7 @@ footer {
 .default-tag a,.default-tag a span,.plus-tag a,.plus-tag a em,.plus-tag-add a
 	{
 	font: 12px/180% Arial, Helvetica, sans-serif;
-	background: url(../img/tagbg.png) no-repeat;
+	background: url(/record/img/tagbg.png) no-repeat;
 }
 
 .tagbtn a {
@@ -466,7 +466,7 @@ ul.unitList {
 	float: right;
 	width: 18px;
 	height: 21px;
-	background: url(../img/edit-btn.png) no-repeat -20px 0;
+	background: url(/record/img/edit-btn.png) no-repeat -20px 0;
 }
 
 .unitList .unit .mask .edit-tag-btn a:hover,.unitList .unit .mask .edit-tag-btn a:active
@@ -491,7 +491,7 @@ ul.unitList {
 	display: block;
 	height: 100%;
 	width: 100%;
-	background: url(../img/edit-btn.png) no-repeat -20px -22px;
+	background: url(/record/img/edit-btn.png) no-repeat -20px -22px;
 }
 
 .unitList .del-btn a:hover,.unitList .del-btn a:active {
@@ -576,7 +576,7 @@ ul.unitList {
 .loader {
 	width: 100%;
 	height: 60px;
-	background: url(../img/loader.gif) no-repeat center #FFF;
+	background: url(/record/img/loader.gif) no-repeat center #FFF;
 	position: fixed;
 	bottom: 0;
 	left: 0;

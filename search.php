@@ -29,11 +29,11 @@ $baseurl = "search.php?tag=$tag&";
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
-<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
-
+<script type="text/javascript">
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+</script>
 </head>
 <body>
-<?php //require BASE_INC . 'rain.php';?>
     <div class="outer-wrapper">
         <div class="inner-wrapper">
             <header>
@@ -112,8 +112,10 @@ require BASE_INC . 'head.inc.php';
     }
 
     ?>
-    <script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
-<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
+	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
+	</script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>

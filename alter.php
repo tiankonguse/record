@@ -22,7 +22,7 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 	$time = date ( "m/d/Y H:i", $row ['time'] );
 	$content = htmlspecialchars ( getDateFromMysql ( $row ['content'] ), ENT_NOQUOTES );
 	$_SESSION ['record_id'] = $id;
-	
+
 	$tags = getTags ( $id );
 	$allTags = getAllTags ();
 } else {
@@ -42,26 +42,27 @@ require BASE_INC . 'head.inc.php';
 	rel="stylesheet" />
 <link href="<?php echo DOMAIN_kindeditor;?>/themes/default/default.css"
 	rel="stylesheet" />
-<link href="<?php echo MAIN_DOMAIN;?>css/main.css" rel="stylesheet">
+<script type="text/javascript">
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+</script>
 </head>
 
 <body>
-<?php //require BASE_INC . 'rain.php';?>
-    <div class="outer-wrapper">
+	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a>
-				<span style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a> <span
+						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
 				</div>
-                <?php require './inc/nav.php';?>
-            </header>
+				<?php require './inc/nav.php';?>
+			</header>
 
 			<section class="billboard">
 				<div class="title sub-title">
 					<h1>
-                    <?php echo $title; ?>
-                    </h1>
+						<?php echo $title; ?>
+					</h1>
 				</div>
 				<div class="container">
 					<form method="post"
@@ -82,12 +83,12 @@ require BASE_INC . 'head.inc.php';
 						</div>
 						<div class="post-line tag">
 							<div class="plus-tag tagbtn clearfix" id="myTags">
-                                <?php
-																																foreach ( $tags as $key => $val ) {
+								<?php
+								foreach ( $tags as $key => $val ) {
 																																	echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
 																																}
 																																?>
-                            </div>
+							</div>
 							<div class="plus-tag-add ">
 								<span class="label">我的标签：</span> <input id="" name=""
 									type="text" class="stext" maxlength="20">
@@ -97,12 +98,12 @@ require BASE_INC . 'head.inc.php';
 							</div>
 							<div id="mycard-plus" style="display: none;">
 								<div class="default-tag tagbtn clearfix">
-                                <?php
-																																foreach ( $allTags as $key => $val ) {
+									<?php
+									foreach ( $allTags as $key => $val ) {
 																																	echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
 																																}
 																																?>
-                                </div>
+								</div>
 							</div>
 						</div>
 						<div class="post-line">
@@ -112,10 +113,9 @@ require BASE_INC . 'head.inc.php';
 				</div>
 			</section>
 		</div>
-		<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		<footer>
-        <?php  require BASE_INC . 'footer.inc.php'; ?>
-        </footer>
+			<?php  require BASE_INC . 'footer.inc.php'; ?>
+		</footer>
 	</div>
 
 	<script src="<?php echo DOMAIN_JS;?>jquery-ui.js"></script>
@@ -124,10 +124,12 @@ require BASE_INC . 'head.inc.php';
 		src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-timepicker-addon.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
 	<script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/write.js"  ></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async ></script>
-	<script src="<?php echo DOMAIN_JS;?>main.js" async ></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/main.js" async ></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/write.js"></script>
+	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async></script>
+	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
+	</script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>
