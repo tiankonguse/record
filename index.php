@@ -20,11 +20,10 @@ $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:false});
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load: false });
 </script>
 </head>
 <body>
-	<?php //require BASE_INC . 'rain.php';?>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
@@ -67,7 +66,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:false});
                     		$len = 33;
                     	}
                     	$showTitle = htmlspecialchars($title);
-                    	//                     	$showTitle = mb_substr($showTitle, 0, $len, 'utf-8');
                     	echo "
                     	<li class=\"listing-item\">
                     	<div class=\"left\"><time datetime='$time'>$time</time></div>
@@ -104,7 +102,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:false});
     }
     ?>
 	<script>
-	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js",load:false});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
 

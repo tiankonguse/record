@@ -37,13 +37,10 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 $title = "修改记录" . $_title;
 require BASE_INC . 'head.inc.php';
 ?>
-
-<link href="<?php echo DOMAIN_datepicker;?>css/jquery-ui.css"
-	rel="stylesheet" />
-<link href="<?php echo DOMAIN_kindeditor;?>/themes/default/default.css"
-	rel="stylesheet" />
 <script type="text/javascript">
 TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+TK.loader.loadCSS({url:"<?php echo PATH_datepicker;?>css/jquery-ui.css"});
+TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"});
 </script>
 </head>
 
@@ -117,16 +114,14 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
 	</div>
-
-	<script src="<?php echo DOMAIN_JS;?>jquery-ui.js"></script>
-	<script src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-slide.min.js"></script>
-	<script
-		src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-timepicker-addon.js"></script>
-	<script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
-	<script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/write.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async></script>
 	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>jquery-ui.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-slide.min.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-timepicker-addon.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>kindeditor.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>lang/zh_CN.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/write.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/tag.js"});
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>

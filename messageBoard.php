@@ -16,7 +16,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
-	<?php //require BASE_INC . 'rain.php';?>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
@@ -39,12 +38,11 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	             /* * * DON'T EDIT BELOW THIS LINE * * */
 	             (function() {
 	               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	                 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 	                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	              })();
 	             </script>
 			</section>
-			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		</div>
 
 		<footer>

@@ -8,9 +8,7 @@ if(strcmp($admin,"") == 0){
 	header('Location:index.php?message=请先登录');
 	die();
 }
-
 $allTags = getAllTags();
-
 ?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
@@ -21,15 +19,11 @@ require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
 TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+TK.loader.loadCSS({url:"<?php echo PATH_datepicker;?>css/jquery-ui.css"});
+TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"});
 </script>
-<link rel="stylesheet"
-	href="<?php echo DOMAIN_datepicker;?>css/jquery-ui.css" />
-<link rel="stylesheet"
-	href="<?php echo DOMAIN_kindeditor;?>/themes/default/default.css" />
 </head>
-
 <body>
-	<?php //require BASE_INC . 'rain.php';?>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
 			<header>
@@ -87,20 +81,18 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 				</div>
 			</section>
 		</div>
-		<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
 	</div>
-	<script src="<?php echo DOMAIN_JS;?>jquery-ui.js"></script>
-	<script src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-slide.min.js"></script>
-	<script
-		src="<?php echo DOMAIN_datepicker;?>js/jquery-ui-timepicker-addon.js"></script>
-	<script src="<?php echo DOMAIN_kindeditor;?>/kindeditor-min.js"></script>
-	<script src="<?php echo DOMAIN_kindeditor;?>/lang/zh_CN.js"></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/write.js" async></script>
-	<script src="<?php echo MAIN_DOMAIN;?>js/tag.js" async></script>
 	<script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>jquery-ui.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-slide.min.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-timepicker-addon.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>kindeditor.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>lang/zh_CN.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/write.js"});
+	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/tag.js"});
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>

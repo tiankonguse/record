@@ -28,7 +28,6 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 }
 
 $sql = "select * from `record_record`  where `time` > '$t' ORDER BY  `time` ASC  limit 0,1";
-// var_dump($sql);
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$preTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
@@ -41,7 +40,6 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 }
 
 $sql = "select * from `record_record` where `time` < '$t' ORDER BY  `time` DESC limit 0,1";
-// var_dump($sql);
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$nextTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
@@ -139,7 +137,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	                        /* * * DON'T EDIT BELOW THIS LINE * * */
 	                        (function() {
 	                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	                            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
 	                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	                        })();
 	                        </script>
@@ -154,13 +152,12 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
-	</script>
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js"});
+		</script>
 		<div id="append_parent"></div>
-		<script src="<?php echo DOMAIN_JS;?>showImg.js"></script>
 		<script type="text/javascript">
         addZoom(".content .post img");
         (function(){
-
             function getTop(){
             	var scrollTop = 0;
         		if (document.documentElement && document.documentElement.scrollTop) {
@@ -213,8 +210,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
 	</div>
-
 </body>
 </html>
-
 <?php require BASE_INC . "end.php";?>

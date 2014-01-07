@@ -158,7 +158,8 @@ pre.prettyprint {
 }
 
 .outer-wrapper {
-	background: #D1D1D1;
+/*	background: #D1D1D1; */
+	background: #fdf7fa;
 	border-top: 2px solid #fff;
 }
 
@@ -652,8 +653,14 @@ a:hover {
 	top: 0px;
 	height: 100%;
 	z-index: 100;
-	background-color: #E2E2E2;
+/*	background-color: #E2E2E2; */
+	background-color : #fdf7fa;
+	color : #fdf7fa;
 	left: 0px;
+}
+
+#dock>li:hover{
+	background-color: #E2E2E2;
 }
 
 #dock>li {
@@ -661,7 +668,8 @@ a:hover {
 	width: 40px;
 	height: 120px;
 	margin: 0 0 1px 0;
-	background-color: #dcdcdc;
+/*	background-color: #dcdcdc; */
+	background-color : #fdf7fa;
 	background-repeat: no-repeat;
 	background-position: left center;
 }

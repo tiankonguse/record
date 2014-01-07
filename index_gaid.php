@@ -102,18 +102,13 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 					</ul>
 				</div>
 			</section>
-			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-
 			<section class="billboard">
 				<?php require('./inc/page.inc.php'); ?>
 			</section>
-
 		</div>
-
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
-
 	</div>
 	<?php
 	if(isset($_GET['message'])){

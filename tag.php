@@ -47,10 +47,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                 ?>
 				</div>
 			</section>
-			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
-
 		</div>
-
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
@@ -69,7 +66,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                 });
 		</script>";
     }
-
     ?>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
