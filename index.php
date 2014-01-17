@@ -1,3 +1,6 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
 <?php
 session_start();
 require("./inc/common.php");
@@ -10,17 +13,12 @@ $nowPage = $_GET['nowPage'];
 $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
 $baseurl = MAIN_DOMAIN."index.php?";
-?>
 
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-<?php
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load: false });
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
 </script>
 </head>
 <body>
@@ -102,7 +100,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load: false });
     }
     ?>
 	<script>
-	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js",load:false});
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
 

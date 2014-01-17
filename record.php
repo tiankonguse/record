@@ -61,7 +61,7 @@ require BASE_INC . 'head.inc.php';
 ?>
 <meta name="keywords" content="<?php echo implode(",",$tags);?>">
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01"});
 </script>
 </head>
 <body>
@@ -152,7 +152,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
-	TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js"});
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js",load:"1.01"});
 		</script>
 		<div id="append_parent"></div>
 		<script type="text/javascript">
@@ -204,10 +204,12 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
         	}
         	document.onmousedown = sc;
         	document.ondblclick = initialize;
-         })();
+        	
+         })();   
         </script>
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
+			<?php require BASE_INC . "bdShare.php";?>
 		</footer>
 	</div>
 </body>

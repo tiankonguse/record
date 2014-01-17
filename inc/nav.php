@@ -8,13 +8,14 @@
 		<li><a href="<?php echo MAIN_DOMAIN;?>record.php?id=513">链接</a></li>
 		<li><a href="http://tiankonguse.com/record/feed/">订阅</a></li>
 		<li><a href="http://tiankonguse.com/record/messageBoard.php">留言</a></li>
+		<li><a href="http://tiankonguse.com/record/aboutme.php">关于</a></li>
 		<li><a href="http://tiankonguse.com/record/donate.php">捐赠</a></li>
-        <?php if(strcmp($admin,"record_admin") != 0){ ?>
-        	<li><a href="<?php echo MAIN_DOMAIN;?>login.php">登录</a></li>
-       <?php  }else{?>
-            <li><a href="<?php echo MAIN_DOMAIN;?>logout.php">退出</a></li>
-       <?php  } ?>
-        
-    </ul>
+		<?php if(strcmp($admin,"record_admin") != 0){ ?>
+		<li><a href="<?php echo MAIN_DOMAIN;?>login.php">登录</a></li>
+		<?php  }else{?>
+		<li><a href="<?php echo MAIN_DOMAIN;?>logout.php">退出</a></li>
+		<?php  } ?>
+
+	</ul>
 </nav>
 <?php require("./inc/menu.php");?>

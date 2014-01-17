@@ -12,7 +12,7 @@ $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01"});
 </script>
 </head>
 <body>
@@ -32,6 +32,11 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 					<div class="entry-content">
 						<h3>简介</h3>
 						<p>本站是tiankonguse 的个人网站。</p>
+						<p>
+							<iframe width="100%" height="550" class="share_self"
+								frameborder="0" scrolling="no"
+								src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=3379254290&verifier=dab824c3&dpc=1"></iframe>
+						</p>
 					</div>
 				</div>
 			</section>
