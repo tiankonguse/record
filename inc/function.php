@@ -121,6 +121,7 @@ function write(){
 			$time = time();
 			$year = date("Y",$time);
 		}
+		$last_time = time();
 
 
 
@@ -132,7 +133,7 @@ function write(){
 		$tags = explode(",", $tags);
 
 		//操作数据库
-		$sql = "insert into `record_record` (`title`,`time`,`content`) values('$title','$time','$content')";
+		$sql = "insert into `record_record` (`title`,`time`,`content`, `last_time`) values('$title','$time','$content','$last_time')";
 
 		$result = mysql_query($sql ,$conn);
 		if($result){
@@ -140,9 +141,7 @@ function write(){
 			$result = mysql_query($sql ,$conn);
 			$row= mysql_fetch_array($result);
 			$id = $row['id'];
-
 			addTags($id, $tags);
-
 			return output(OUTPUT_SUCCESS,"添加成功");
 		}else{
 			return output(OUTPUT_ERROR,"数据库操作失败，请联系管理员");
@@ -231,6 +230,7 @@ function alter(){
 			$time = time();
 			$year = date("Y",$time);;
 		}
+		$last_time = time();
 
 		//防止sql注入
 		$title   = mysql_real_escape_string($title);
@@ -240,7 +240,7 @@ function alter(){
 		$tags = explode(",", $tags);
 
 		//操作数据库
-		$sql = "UPDATE `record_record` SET `title`= '$title',`content`= '$content',`time`= '$time' WHERE `id` = '$id'";
+		$sql = "UPDATE `record_record` SET `title`= '$title',`content`= '$content',`time`= '$time', `last_time` = '$last_time' WHERE `id` = '$id'";
 
 		$result = mysql_query($sql ,$conn);
 		if($result){

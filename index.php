@@ -18,7 +18,7 @@ $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:true});
 </script>
 </head>
 <body>
@@ -26,8 +26,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
 		<div class="inner-wrapper">
 			<header>
 				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
+					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
+					<div class="sub-title">牛奶会有的，面包会有的!</div>
 				</div>
 				<?php require './inc/nav.php';?>
 			</header>
@@ -38,7 +38,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
 				<div class="container">
 					<ul class="listing">
 						<?php
-						$sql = "select * from `record_record`  ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+						$sql = "select * from `record_record`  ORDER BY  `last_time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
 						$result = mysql_query($sql ,$conn);
 
 						$pre_year = "";
@@ -46,7 +46,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
 
 						while($row=@mysql_fetch_array($result)){
 							$id = $row['id'];
-							$time = $row['time'];
+							$time = $row['last_time'];
 							$title = getDateFromMysql($row['title']);
 							$time = date("Y-m-d",$time);
 							sscanf($time,"%d-%d-%d", $year, $month, $day);
@@ -66,9 +66,9 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01" });
                     	$showTitle = htmlspecialchars($title);
                     	echo "
                     	<li class=\"listing-item\">
-                    	<div class=\"left\"><time datetime='$time'>$time</time></div>
-                    	<div class=\"item-title\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\">$showTitle</a></div>
-                    	<div class=\"right\">$alter</div>
+                    	<time datetime='$time'>$time</time>
+                    	<a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\" class=\"item-title\" >$showTitle</a>
+                    	<span class=\"right\">$alter</span>
                     	</li>";
 						}
 						?>

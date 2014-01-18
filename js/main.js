@@ -1,9 +1,6 @@
 $(document).ready(
 		function() {
 			var docked = 0;
-
-			$("#dock li ul").height($(window).height());
-
 			$("#dock .dock-keleyi-com").click(
 					function() {
 						$(this).parent().parent().addClass("docked")
@@ -43,8 +40,9 @@ $(document).ready(
 					});
 
 			$("#dock li").hover(function() {
-				$(this).find("ul").animate({
-					left : "40px"
+			    	var that = $(this);
+			    	that.find("ul").animate({
+					left : that.width() + "px"
 				}, 200);
 			}, function() {
 				$(this).find("ul.free").animate({

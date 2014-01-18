@@ -1,11 +1,12 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
 <?php
+session_start ();
 if (! isset ( $_GET ["id"] )) {
 	header ( 'Location:index.php?message=非法操作' );
 	die ();
 }
-
-session_start ();
-
 require ("./inc/common.php");
 require ("./inc/function.php");
 
@@ -16,18 +17,18 @@ $sql = "select * from `record_record` where `id` = '$id'";
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$title = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
-	$time = date ( "Y-m-d", $row ['time'] );
-	$t = $row ['time'];
-
+	$time = date ( "Y-m-d H:i:s", $row ['time'] );
+	$last_time = date ( "Y-m-d H:i:s", $row ['last_time'] );
+	$t = $row ['last_time'];
 	$content = getDateFromMysql ( $row ['content'] );
-	//var_dump($content, $row ['content']);
 	$tags = getTags ( $id );
 } else {
-	header ( 'Location:index.php?message=error,the post may be deleted.' );
+	header ( "Location:index.php?message=".urlencode("error,the post may be deleted.") );
 	die ();
 }
 
-$sql = "select * from `record_record`  where `time` > '$t' ORDER BY  `time` ASC  limit 0,1";
+
+$sql = "select * from `record_record`  where `last_time` > '$t' ORDER BY  `last_time` ASC  limit 0,1";
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$preTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
@@ -39,7 +40,7 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 	$preText = "<a href=\"$preLink\" target=\"_blank\">$preTitle</a>";
 }
 
-$sql = "select * from `record_record` where `time` < '$t' ORDER BY  `time` DESC limit 0,1";
+$sql = "select * from `record_record` where `last_time` < '$t' ORDER BY  `last_time` DESC limit 0,1";
 $result = mysql_query ( $sql, $conn );
 if ($result && $row = mysql_fetch_array ( $result )) {
 	$nextTitle = htmlspecialchars ( getDateFromMysql ( $row ['title'] ) );
@@ -51,17 +52,11 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 	$nextText = "<a href=\"$nextLink\" target=\"_blank\">$nextTitle</a>";
 }
 
-?>
-
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-<?php
 require BASE_INC . 'head.inc.php';
 ?>
 <meta name="keywords" content="<?php echo implode(",",$tags);?>">
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01"});
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
@@ -91,6 +86,12 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01"});
 									datetime="<?php echo $time;?>" itemprop="datePublished"
 									content="<?php echo $time;?>">
 									<?php echo $time;?>
+								</time>
+							</span> 
+							<span class="time"> last alter at <time
+									datetime="<?php echo $last_time;?>" itemprop="datePublished"
+									content="<?php echo $last_time;?>">
+									<?php echo $last_time;?>
 								</time>
 							</span>
 
@@ -152,7 +153,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",v:"1.01"});
 		<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
-	TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js",load:"1.01"});
+	TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js"});
 		</script>
 		<div id="append_parent"></div>
 		<script type="text/javascript">
