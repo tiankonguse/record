@@ -1,3 +1,6 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
 <?php
 if (! isset ( $_GET ["id"] )) {
 	header ( 'Location:index.php?message=非法操作' );
@@ -29,11 +32,7 @@ if ($result && $row = mysql_fetch_array ( $result )) {
 	header ( 'Location:index.php?message=这篇文章不存在' );
 	die ();
 }
-?>
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-<?php
+
 $title = "修改记录" . $_title;
 require BASE_INC . 'head.inc.php';
 ?>
@@ -47,13 +46,8 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 <body>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 
 			<section class="billboard">
 				<div class="title sub-title">
@@ -82,9 +76,9 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 							<div class="plus-tag tagbtn clearfix" id="myTags">
 								<?php
 								foreach ( $tags as $key => $val ) {
-																																	echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
-																																}
-																																?>
+									echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
+								}
+								?>
 							</div>
 							<div class="plus-tag-add ">
 								<span class="label">我的标签：</span> <input id="" name=""
@@ -97,9 +91,9 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 								<div class="default-tag tagbtn clearfix">
 									<?php
 									foreach ( $allTags as $key => $val ) {
-																																	echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
-																																}
-																																?>
+										echo "<a title=\"$val\" href=\"javascript:void(0);\" class=\"handcursor\"><span>$val</span><em></em></a>";
+									}
+									?>
 								</div>
 							</div>
 						</div>
@@ -125,6 +119,6 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
+	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
-<?php require BASE_INC . "end.php";?>

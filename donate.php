@@ -1,14 +1,11 @@
-<?php
-session_start ();
-require ("./inc/common.php");
-require ("./inc/function.php");
-?>
-
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
 <?php
-$title = "tiankonguse' record";
+session_start ();
+require ("./inc/common.php");
+require ("./inc/function.php");
+$title = "为 tiankonguse 捐赠 一些东西";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
@@ -18,13 +15,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 <body>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 
 			<section class="billboard">
 				<div class="container about-me">
@@ -42,29 +34,11 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 					</div>
 				</div>
 			</section>
-			<script src="<?php echo DOMAIN_JS;?>jquery.js"></script>
 		</div>
-
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
 	</div>
-	<?php
-	if (isset ( $_GET ['message'] )) {
-					echo "
-					<script>
-					$(function(){
-					var _state = {
-					title:'',
-					url:window.location.href.split('?')[0]
-                    };
-                    history.pushState(_state,'','?nowPage=$nowPage');
-                    showMessage('" . htmlspecialchars ( $_GET ['message'] ) . "');
-                });
-			</script>";
-				}
-
-				?>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});

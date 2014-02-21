@@ -1,4 +1,4 @@
-<ul id="dock">
+<ul id="dock" class="outer-color outer-menu-color">
 	<li>菜单
 		<ul class="free">
 			<li class="header"><a href="#" class="dock-keleyi-com">固定</a><a

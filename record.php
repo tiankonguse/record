@@ -62,13 +62,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 <body>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse' record</a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 
 			<section class="billboard" itemscope
 				itemtype="http://schema.org/Article">
@@ -87,9 +82,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 									content="<?php echo $time;?>">
 									<?php echo $time;?>
 								</time>
-							</span> 
-							<span class="time"> last alter at <time
-									datetime="<?php echo $last_time;?>" itemprop="datePublished"
+							</span> <span class="time"> last alter at <time
+									datetime="<?php echo $last_time;?>"
 									content="<?php echo $last_time;?>">
 									<?php echo $last_time;?>
 								</time>
@@ -112,9 +106,9 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 							<div class="plus-tag tagbtn clearfix">
 								<?php
 								foreach ( $tags as $key => $val ) {
-	echo "<a title=\"$val\" href=\"" . MAIN_DOMAIN . "search.php?tag=$val\" class=\"handcursor\"><span>$val</span></a>";
-}
-?>
+									echo "<a title=\"$val\" href=\"" . MAIN_DOMAIN . "search.php?tag=$val\" class=\"handcursor\"><span>$val</span></a>";
+								}
+								?>
 							</div>
 						</section>
 						<section>
@@ -157,8 +151,9 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		</script>
 		<div id="append_parent"></div>
 		<script type="text/javascript">
-        addZoom(".content .post img");
+        
         (function(){
+            addZoom(".content .post img");
             function getTop(){
             	var scrollTop = 0;
         		if (document.documentElement && document.documentElement.scrollTop) {
@@ -213,6 +208,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 			<?php require BASE_INC . "bdShare.php";?>
 		</footer>
 	</div>
+	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
-<?php require BASE_INC . "end.php";?>

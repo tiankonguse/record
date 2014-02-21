@@ -1,3 +1,6 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
 <?php
 session_start();
 require("./inc/common.php");
@@ -10,12 +13,7 @@ $nowPage = $_GET['nowPage'];
 $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
 $baseurl = "index_gaid.php?";
-?>
 
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-<?php
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
@@ -24,16 +22,10 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
-	<?php //require BASE_INC . 'rain.php';?>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 
 			<section class="billboard">
 				<div class="container">
@@ -80,23 +72,23 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 								echo "<span><a title=\"$val\" href=\"".MAIN_DOMAIN."search.php?tag=$val\">$val</a></span>";
 							}
 							echo "
-									</div>
-									<div class=\"edit-tag-btn\" title=\"编辑\">
-									<a href='".MAIN_DOMAIN."alter.php?id=$id'\" class=\"_editBtn\"><span>编辑</span></a>
-									</div>
-									<div class=\"del-btn\" title=\"删除\">
-									<a href='".MAIN_DOMAIN."alter.php?id=$id'\" class=\"_delBtn\"><span>删除</span></a>
-									</div>
-									</div>
-									<div class=\"unit-box\">
-									<div class=\"unit-c\">
-									<h4>
-									<a href=\"".MAIN_DOMAIN."record.php?id=$id\">$title</a>
-									</h4>
-									<div class=\"desc\">$content</div>
-									</div>
-									</div>
-									</li>";
+										</div>
+										<div class=\"edit-tag-btn\" title=\"编辑\">
+										<a href='".MAIN_DOMAIN."alter.php?id=$id'\" class=\"_editBtn\"><span>编辑</span></a>
+										</div>
+										<div class=\"del-btn\" title=\"删除\">
+										<a href='".MAIN_DOMAIN."alter.php?id=$id'\" class=\"_delBtn\"><span>删除</span></a>
+										</div>
+										</div>
+										<div class=\"unit-box\">
+										<div class=\"unit-c\">
+										<h4>
+										<a href=\"".MAIN_DOMAIN."record.php?id=$id\">$title</a>
+										</h4>
+										<div class=\"desc\">$content</div>
+										</div>
+										</div>
+										</li>";
 						}
 						?>
 					</ul>
@@ -112,42 +104,13 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	</div>
 	<?php
 	if(isset($_GET['message'])){
-    	echo "
-    	<script>
-    	$(function(){
-    	var _state = {
-    	title:'',
-    	url:window.location.href.split('?')[0]
-                    };
-                    history.pushState(_state,'','?nowPage=$nowPage');
-                    showMessage('" . htmlspecialchars($_GET['message']) . "');
-                });
-		</script>";
+    	echo "<script>$(function(){alterUrlAndShowMessage(\"$title\", \"".htmlspecialchars ( $_GET ['message'] )."\");});</script>";
     }
-
     ?>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
-	<script>
-        $(function(){
-            $(".unitList .unit").mouseover(function(){
-                $(this).addClass("mson-unit");
-            });
-            
-            $(".unitList .unit").bind("click",function(){
-                var id = $(this).attr("rid");
-                window.location.href= "<?php echo MAIN_DOMAIN; ?>record.php?id=" + id;
-            });
-
-            $(".unitList .unit").mouseout(function(){
-	        	$(this).removeClass("mson-unit");
-            });
-            
-        });
-    </script>
-
+	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
-<?php require BASE_INC . "end.php";?>

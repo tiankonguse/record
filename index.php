@@ -18,22 +18,14 @@ $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
-TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:true});
+TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
-	<div class="outer-wrapper">
+	<div class="outer-wrapper outer-color">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>"><?php echo $title; ?> </a>
-					<div class="sub-title">牛奶会有的，面包会有的!</div>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
-
-
-
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 			<section class="billboard">
 				<div class="container">
 					<ul class="listing">
@@ -62,14 +54,14 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:true});
                     		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
                     		$alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
                     		$len = 33;
-                    	}
-                    	$showTitle = htmlspecialchars($title);
-                    	echo "
-                    	<li class=\"listing-item\">
-                    	<time datetime='$time'>$time</time>
-                    	<a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\" class=\"item-title\" >$showTitle</a>
-                    	<span class=\"right\">$alter</span>
-                    	</li>";
+	                    	}
+	                    	$showTitle = htmlspecialchars($title);
+	                    	echo "
+	                    	<li class=\"listing-item\">
+	                    	<time datetime='$time'>$time</time>
+	                    	<a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"".str_replace( array("\""," ","<",">","&"), array("&quot;","&nbsp;","&lt;","&gt;","&amp;"),$title)."\" class=\"item-title\" >$showTitle</a>
+	                    	<span class=\"right\">$alter</span>
+	                    	</li>";
 						}
 						?>
 					</ul>
@@ -86,24 +78,13 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css",load:true});
 	</div>
 	<?php
 	if(isset($_GET['message'])){
-    	echo "
-    	<script>
-    	$(function(){
-    	var _state = {
-    	title:'',
-    	url:window.location.href.split('?')[0]
-                    };
-                    history.pushState(_state,'','?nowPage=$nowPage');
-                    showMessage('" . htmlspecialchars($_GET['message']) . "');
-                });
-		</script>";
+    	echo "<script>$(function(){alterUrlAndShowMessage(\"$title\", \"".htmlspecialchars ( $_GET ['message'] )."\");});</script>";
     }
     ?>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
-
+	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
-<?php require BASE_INC . "end.php";?>

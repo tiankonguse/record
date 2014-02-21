@@ -1,3 +1,6 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn">
+<head>
 <?php
 session_start();
 require("./inc/common.php");
@@ -9,11 +12,7 @@ if(strcmp($admin,"") == 0){
 	die();
 }
 $allTags = getAllTags();
-?>
-<!DOCTYPE HTML>
-<html lang="zh-cn">
-<head>
-<?php
+
 $title = "写新记录";
 require BASE_INC . 'head.inc.php';
 ?>
@@ -26,13 +25,8 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 <body>
 	<div class="outer-wrapper">
 		<div class="inner-wrapper">
-			<header>
-				<div class="title">
-					<a href="<?php echo MAIN_DOMAIN;?>">tiankonguse'record</a> <span
-						style="font-size: 25px; color: rgb(93, 75, 97);">牛奶会有的，面包会有的!</span>
-				</div>
-				<?php require './inc/nav.php';?>
-			</header>
+			<?php require './inc/head.php';?>
+			<?php require './inc/nav.php';?>
 			<section class="billboard">
 				<div class="title sub-title">
 					<h1>
@@ -96,6 +90,6 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
 	</script>
+	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
-<?php require BASE_INC . "end.php";?>
