@@ -21,7 +21,7 @@ $pageSize = $_GET['pageSize'];
 $tagId = $_GET['tagId'];
 $baseurl = "search.php?tag=$tag&";
 
-$title = "tiankonguse' record";
+$title = "tiankonguse' record ~ $tag";
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">

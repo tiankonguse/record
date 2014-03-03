@@ -1,3 +1,14 @@
+body {
+	min-width: 1020px;
+	color: #333333;
+	background-color: #fff;
+}
+
+::selection {
+	text-shadow: none;
+	background: rgba(65, 131, 196, 0.4);
+}
+
 .content {
 	font-size: 16px;
 	line-height: 24px;
@@ -6,7 +17,6 @@
 .meta {
 	text-align: left;
 	font-size: 12px;
-	background-color: #CACACA;
 	margin: 1px 10px 1px 10px;
 }
 
@@ -53,7 +63,6 @@ pre.prettyprint {
 .menu-wrapper {
 	text-transform: uppercase;
 	font-family: 'Open Sans', sans-serif;
-	background: #F3F3E4;
 }
 
 .menu-list {
@@ -92,7 +101,6 @@ pre.prettyprint {
 	-webkit-box-shadow: 0 0 0 1px #fff inset;
 	-moz-box-shadow: 0 0 0 1px #fff inset;
 	box-shadow: 0 0 0 1px #fff inset;
-	background: #F3F3E4;
 	border-bottom: 1px solid #ddd;
 	display: block;
 }
@@ -223,11 +231,11 @@ footer {
 
 .default-tag a.selected {
 	opacity: 0.6;
-	filter: alpha(opacity =                                
+	filter: alpha(opacity =                                                  
 		                                                         
 		                                                         
 		                                                                    
-		                       60);
+		                                         60);
 }
 
 .default-tag a.selected:hover {
@@ -579,6 +587,7 @@ a:hover {
 
 #dock>li {
 	margin: 0 0 1px 0;
+	color: #fff;
 }
 
 /* panels */
@@ -671,15 +680,6 @@ a:hover {
 .outer-wrapper {
 	border-top: 2px solid #fff;
 	margin: 0 40px;
-}
-
-.outer-color,body {
-	background: #f7f7f7;
-}
-
-.outer-menu-color {
-	background: #f7f7f7;
-	color: #f7f7f7;
 }
 
 .inner-wrapper {
@@ -820,16 +820,14 @@ header>.sub-title {
 		width: 30px;
 	}
 	.top-btn {
-	bottom: 60px;
-	right: -30px;
-	height: 30px;
-	width: 30px;
+		bottom: 60px;
+		right: -30px;
+		height: 30px;
+		width: 30px;
 	}
-	
 	.top-btn:hover {
 		background-position: -30px 0px;
 	}
-	
 	.top-show {
 		right: 60px;
 		-webkit-animation: top-show 1s linear;
@@ -838,7 +836,6 @@ header>.sub-title {
 		-o-animation: top-show 1s linear;
 		animation: top-show 1s linear;
 	}
-	
 	.top-hide {
 		right: -30px;
 		-webkit-animation: top-hide 1s linear;
@@ -847,8 +844,6 @@ header>.sub-title {
 		-o-animation: top-hide 1s linear;
 		animation: top-hide 1s linear;
 	}
-	
-
 }
 
 @media ( max-width :480px) {
