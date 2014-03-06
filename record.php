@@ -57,6 +57,8 @@ require BASE_INC . 'head.inc.php';
 <meta name="keywords" content="<?php echo implode(",",$tags);?>">
 <script type="text/javascript">
 TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
+TK.loader.loadJS({url:"/common/mathjax/MathJax.js"});
+TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>plugins/code/prettify.css"});
 </script>
 </head>
 <body>
@@ -95,12 +97,14 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 								echo "<span class=\"right\"><a href='" . MAIN_DOMAIN . "alter.php?id=$id'>修改</a>	</span>";
 							}
 							?>
-
 						</section>
 
 						<section class="post" itemprop="articleBody">
 							<?php echo $content; ?>
-						</section>
+                        </section>
+                        <section>
+			            <?php require BASE_INC . "bdShare.php";?>
+                        </section>
 						<section class="tag">
 							<div style="margin-top: 10px;">标签：</div>
 							<div class="plus-tag tagbtn clearfix">
@@ -137,7 +141,12 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	                        })();
 	                        </script>
 						</section>
-
+                        <section>
+                       <!--<script src="http://code.88ng.com/page/s.php?s=1405&w=728&h=90"></script>  -->
+<script src="http://code.88ng.com/page/s.php?s=2199&w=130&h=40"></script>
+<script src="http://code.88ng.com/page/s.php?s=2200&w=130&h=40"></script>
+<!-- <script src="http://code.88ng.com/page/s.php?s=1418&w=980&h=100"></script> -->
+                       </section>
 
 					</article>
 
@@ -205,9 +214,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
         </script>
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
-			<?php require BASE_INC . "bdShare.php";?>
 		</footer>
 	</div>
-	<?php require BASE_INC . "end.php";?>
 </body>
 </html>
+<?php require BASE_INC . "end.php";?>

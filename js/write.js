@@ -75,7 +75,8 @@ $(function() {
 		    'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
 		    'strikethrough', 'lineheight', 'removeformat', '|',
 		    'image', 'insertfile', 'table', 'hr', 'emoticons',
-		    'pagebreak', 'anchor', 'link', 'unlink' ]
+		    'pagebreak', 'anchor', 'link', 'unlink' ],
+    cssPath : ['/common/kindeditor/plugins/code/prettify.css']
 	});
     });
 

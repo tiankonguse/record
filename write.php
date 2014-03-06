@@ -20,6 +20,7 @@ require BASE_INC . 'head.inc.php';
 TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 TK.loader.loadCSS({url:"<?php echo PATH_datepicker;?>css/jquery-ui.css"});
 TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"});
+TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>plugins/code/prettify.css"});
 </script>
 </head>
 <body>
@@ -80,11 +81,11 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 		</footer>
 	</div>
 	<script>
-	TK.loader.loadJS({url:"<?php echo PATH_JS;?>jquery-ui.js"});
-	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-slide.min.js"});
-	TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-timepicker-addon.js"});
+	//TK.loader.loadJS({url:"<?php echo PATH_JS;?>jquery-ui.js"});
+	//TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-slide.min.js"});
+	//TK.loader.loadJS({url:"<?php echo PATH_datepicker;?>js/jquery-ui-timepicker-addon.js"});
 	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>kindeditor.js"});
-	TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>lang/zh_CN.js"});
+	//TK.loader.loadJS({url:"<?php echo PATH_kindeditor;?>lang/zh_CN.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/write.js"});
 	TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/tag.js"});
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});

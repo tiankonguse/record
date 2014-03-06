@@ -41,18 +41,17 @@ header {
 }
 
 pre.prettyprint {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 25px;
-	margin-right: 30px;
-	padding: 6px 12px;
-	color: #85FF00;
 	overflow: auto;
 	word-wrap: break-word;
 	font: 12px/1.5 Monaco, "Andale Mono", "Lucida Console",
 		"Bitstream Vera Sans Mono", "Courier New", monospace;
-	border: 1px dashed #CCC;
-	background-color: #000000;
+	border: 0;
+	border-left: 3px solid rgb(204, 204, 204);
+    margin-left: 2em;
+    padding: 0.5em;
+    margin: 1em 0px;
+    white-space: pre;
+    color: #0C3E64;
 }
 
 .inner-wrapper>header {
