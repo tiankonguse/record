@@ -141,13 +141,6 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>plugins/code/prettify.css"}
 	                        })();
 	                        </script>
 						</section>
-                        <section>
-                       <!--<script src="http://code.88ng.com/page/s.php?s=1405&w=728&h=90"></script>  -->
-<script src="http://code.88ng.com/page/s.php?s=2199&w=130&h=40"></script>
-<script src="http://code.88ng.com/page/s.php?s=2200&w=130&h=40"></script>
-<!-- <script src="http://code.88ng.com/page/s.php?s=1418&w=980&h=100"></script> -->
-                       </section>
-
 					</article>
 
 				</div>

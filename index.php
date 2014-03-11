@@ -26,7 +26,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-			<section class="billboard">
+			<section class="billboard clearfix">
 				<div class="container">
 					<ul class="listing">
 						<?php
@@ -65,7 +65,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 						}
 						?>
 					</ul>
-				</div>
+                </div>
+                <?php require("./inc/aside.php");?>
 			</section>
 			<section class="billboard">
 				<?php require('./inc/page.inc.php'); ?>

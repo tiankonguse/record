@@ -20,9 +20,7 @@ body {
 	margin: 1px 10px 1px 10px;
 }
 
-/* 
-write css
- */
+/* write css */
 .post-line {
 	margin-top: 3px;
 }
@@ -47,16 +45,16 @@ pre.prettyprint {
 		"Bitstream Vera Sans Mono", "Courier New", monospace;
 	border: 0;
 	border-left: 3px solid rgb(204, 204, 204);
-    margin-left: 2em;
-    padding: 0.5em;
-    margin: 1em 0px;
-    white-space: pre;
-    color: #0C3E64;
+	margin-left: 2em;
+	padding: 0.5em;
+	margin: 1em 0px;
+	white-space: pre;
+	color: #0C3E64;
 }
 
 .inner-wrapper>header {
-	margin-bottom: 30px;
-	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .menu-wrapper {
@@ -91,17 +89,18 @@ pre.prettyprint {
 	margin-top: 10px;
 	max-width: inherit;
 	margin: auto;
+	background-color: rgb(243, 243, 243);
 }
 
 .billboard {
 	margin: 0 auto;
-	padding: 10px;
 	margin-bottom: 20px;
 	-webkit-box-shadow: 0 0 0 1px #fff inset;
 	-moz-box-shadow: 0 0 0 1px #fff inset;
 	box-shadow: 0 0 0 1px #fff inset;
 	border-bottom: 1px solid #ddd;
 	display: block;
+	background-color: #FFF;
 }
 
 footer {
@@ -230,11 +229,12 @@ footer {
 
 .default-tag a.selected {
 	opacity: 0.6;
-	filter: alpha(opacity =                                                  
+	filter: alpha(opacity =
 		                                                         
-		                                                         
-		                                                                    
-		                                         60);
+
+
+
+            60);
 }
 
 .default-tag a.selected:hover {
@@ -701,12 +701,72 @@ header>.sub-title {
 	color: rgb(93, 75, 97);
 }
 
+/* version 1.2 background-color:write; block-background-color:rdb(243,243,243); */
+header {
+	background-color: rgb(243, 243, 243);
+	border: 1px solid #ccc;
+}
+
+nav {
+	background-color: rgb(243, 243, 243);
+}
+
+section {
+	background-color: rgb(243, 243, 243);
+}
+
+footer {
+	background-color: rgb(243, 243, 243);
+}
+
+.container {
+	float: left;
+}
+
+.aside {
+	float: right;
+	position: relative;
+	right: 0px;
+	clear: right;
+	background-color: rgb(243, 243, 243);
+	min-height: 500px;
+}
+
+.aside ul {
+	list-style: none;
+	margin-left: 0;
+}
+
+.aside h3 {
+	font-family: Arial, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 22px;
+}
+
+
+
 @media ( min-width :980px) {
+	header {
+		border-bottom: 5px solid #ccc;
+		padding: 0 0 0 20px;
+	}
+	nav {
+		margin-bottom: 5px;
+	}
+	.container {
+		margin: 0 0 0 0;
+		width: 890px;
+	}
+	.aside {
+		width: 290px;
+		padding: 22px 0 0 0;
+	}
 	body {
 		min-width: 1100px;
 	}
 	.inner-wrapper {
-		padding: 20px 40px;
+		padding: 0;
 	}
 	.listing-item {
 		padding: 10px 10px 5px 20px;
@@ -760,7 +820,7 @@ header>.sub-title {
 		min-width: 965px;
 	}
 	.inner-wrapper {
-		padding: 15px 30px;
+		padding: 0;
 	}
 	.listing-item {
 		padding: 8px 8px 4px 15px;
@@ -850,7 +910,7 @@ header>.sub-title {
 		min-width: 480px;
 	}
 	.inner-wrapper {
-		padding: 10px 20px;
+		padding: 0;
 	}
 	.listing {
 		padding-left: 10px;
