@@ -34,6 +34,7 @@
 		<ul class="free">
 			<li class="header"><a href="#" class="dock-keleyi-com">固定</a><a
 				href="#" class="undock">隐藏</a>推荐</li>
+			<li><a href="http://www.jobbole.com/" target="_blank">伯乐在线</a></li>
 		</ul>
 	</li>
 </ul>
