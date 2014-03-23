@@ -18,7 +18,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
 
-			<section class="billboard">
+			<section class="billboardi clearfix">
 				<div class="container about-me">
 					<h1 class="entry-title">捐赠本站</h1>
 					<div class="entry-content">
@@ -34,10 +34,10 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 					</div>
 				</div>
 			</section>
+		    <footer>
+			    <?php  require BASE_INC . 'footer.inc.php'; ?>
+    		</footer>
 		</div>
-		<footer>
-			<?php  require BASE_INC . 'footer.inc.php'; ?>
-		</footer>
 	</div>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});

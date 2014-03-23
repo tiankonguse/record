@@ -2,7 +2,7 @@
 	<li>菜单
 		<ul class="free">
 			<li class="header"><a href="#" class="dock-keleyi-com">固定</a><a
-				href="#" class="undock">隐藏</a>菜单</li>
+				href="#" class="undock">隐藏</a>|</li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>">主页</a></li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>index_gaid.php">方格</a></li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>write.php">记录</a></li>
@@ -22,7 +22,7 @@
 	<li>分类
 		<ul class="free">
 			<li class="header"><a href="#" class="dock-keleyi-com">固定</a><a
-				href="#" class="undock">隐藏</a>分类</li>
+				href="#" class="undock">隐藏</a>|</li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>search.php?tag=acm">ACM</a></li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>search.php?tag=linux">linux</a></li>
 			<li><a href="<?php echo MAIN_DOMAIN;?>search.php?tag=生活">生活</a></li>
@@ -33,7 +33,7 @@
 	<li>推荐
 		<ul class="free">
 			<li class="header"><a href="#" class="dock-keleyi-com">固定</a><a
-				href="#" class="undock">隐藏</a>推荐</li>
+				href="#" class="undock">隐藏</a>|</li>
 			<li><a href="http://www.jobbole.com/" target="_blank">伯乐在线</a></li>
 		</ul>
 	</li>

@@ -48,8 +48,7 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-
-			<section class="billboard">
+			<section class="billboard clearfix">
 				<div class="title sub-title">
 					<h1>
 						<?php echo $title; ?>
@@ -103,10 +102,10 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>themes/default/default.css"
 					</form>
 				</div>
 			</section>
+		    <footer>
+			    <?php  require BASE_INC . 'footer.inc.php'; ?>
+    		</footer>
 		</div>
-		<footer>
-			<?php  require BASE_INC . 'footer.inc.php'; ?>
-		</footer>
 	</div>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>jquery-ui.js"});

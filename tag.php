@@ -28,7 +28,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-
 			<section class="tag billboard">
 				<div style="margin-top: 10px;">标签：</div>
 				<div class="plus-tag tagbtn clearfix">
@@ -39,10 +38,10 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	                ?>
 				</div>
 			</section>
+		    <footer>
+			    <?php  require BASE_INC . 'footer.inc.php'; ?>
+    		</footer>
 		</div>
-		<footer>
-			<?php  require BASE_INC . 'footer.inc.php'; ?>
-		</footer>
 	</div>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});

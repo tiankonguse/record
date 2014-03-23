@@ -1,7 +1,7 @@
 body {
 	min-width: 1020px;
 	color: #333333;
-	background-color: #fff;
+	background-color: #98BFC9;
 }
 
 ::selection {
@@ -17,7 +17,6 @@ body {
 .meta {
 	text-align: left;
 	font-size: 12px;
-	margin: 1px 10px 1px 10px;
 }
 
 /* write css */
@@ -89,7 +88,8 @@ pre.prettyprint {
 	margin-top: 10px;
 	max-width: inherit;
 	margin: auto;
-	background-color: rgb(243, 243, 243);
+	/*background-color: rgb(243, 243, 243);*/
+    background-color: #EEEEEE;
 }
 
 .billboard {
@@ -100,7 +100,7 @@ pre.prettyprint {
 	box-shadow: 0 0 0 1px #fff inset;
 	border-bottom: 1px solid #ddd;
 	display: block;
-	background-color: #FFF;
+    background-color: #EEEEEE;
 }
 
 footer {
@@ -229,12 +229,7 @@ footer {
 
 .default-tag a.selected {
 	opacity: 0.6;
-	filter: alpha(opacity =
-		                                                         
-
-
-
-            60);
+	filter: alpha(opacity = 60);
 }
 
 .default-tag a.selected:hover {
@@ -253,6 +248,7 @@ footer {
 
 .tag .plus-tag {
 	margin-top: 10px;
+    margin-left: 5px;
 }
 
 .tag .plus-tag a,.tag .default-tag a {
@@ -577,16 +573,19 @@ a:hover {
 	height: 100%;
 	z-index: 100;
 	left: 0px;
+    border-right: rgb(114, 112, 112) solid 1px;
 }
 
 #dock>li:hover {
-	background-color: #E2E2E2;
-	color: #fdf7fa;
+	/*background-color: #E2E2E2;*/
+	/*color: #fdf7fa;*/
 }
 
 #dock>li {
 	margin: 0 0 1px 0;
-	color: #fff;
+	color: #A3A3A3;
+    border-bottom: rgb(155, 155, 155) solid 1px;
+	/*color: #fff;*/
 }
 
 /* panels */
@@ -677,7 +676,6 @@ a:hover {
 
 /* all brower */
 .outer-wrapper {
-	border-top: 2px solid #fff;
 	margin: 0 40px;
 }
 
@@ -807,7 +805,7 @@ footer {
 	}
 	#dock>li {
 		padding-top: 50px;
-		width: 40px;
+		width: 20px;
 		height: 120px;
 	}
 	.page-style .page-item-left {
@@ -861,7 +859,7 @@ footer {
 	}
 	#dock>li {
 		padding-top: 40px;
-		width: 30px;
+		width: 20px;
 		height: 100px;
 	}
 	.page-style .page-item-left {

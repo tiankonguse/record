@@ -25,7 +25,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-			<section class="billboard">
+			<section class="billboard clearfix">
 				<div class="container">
 					<form class="form-horizontal"
 						action="<?php echo MAIN_DOMAIN;?>inc/control.php?state=1"
@@ -74,10 +74,10 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 
 				</div>
 			</section>
+		    <footer>
+			    <?php  require BASE_INC . 'footer.inc.php'; ?>
+    		</footer>
 		</div>
-		<footer>
-			<?php  require BASE_INC . 'footer.inc.php'; ?>
-		</footer>
 	</div>
 	<script>
 	TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});

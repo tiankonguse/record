@@ -18,7 +18,6 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-
 			<section>
 				<h3>留言</h3>
 				<a href="http://tiankonguse.com/lab/AKeyToSend/" style="color: red;">给我发短信</a>
@@ -36,11 +35,10 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	              })();
 	             </script>
 			</section>
+	    	<footer>
+		    	<?php  require BASE_INC . 'footer.inc.php'; ?>
+    		</footer>
 		</div>
-
-		<footer>
-			<?php  require BASE_INC . 'footer.inc.php'; ?>
-		</footer>
 	</div>
 
 	<script>
