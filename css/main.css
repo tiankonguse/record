@@ -762,6 +762,8 @@ footer {
 	}
 	body {
 		min-width: 1100px;
+        max-width: 1400px;
+        margin: auto;
 	}
 	.inner-wrapper {
 		padding: 0;
