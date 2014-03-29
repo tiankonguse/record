@@ -230,7 +230,11 @@ function alter(){
 			$time = time();
 			$year = date("Y",$time);;
 		}
-		$last_time = time();
+        if($id == 513){
+            $last_time = $time;
+        }else{
+            $last_time = time();
+        }
 
 		//防止sql注入
 		$title   = mysql_real_escape_string($title);
