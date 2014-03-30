@@ -159,26 +159,37 @@ function addTags($recordId, $tags){
 		$result = mysql_query($sql ,$conn);
 		$row= mysql_fetch_array($result);
 
+		$tagId = $row['id'];
 		if(!$row){
 			$sql = "INSERT INTO `record_tag`(`name`) VALUES ('$name')";
 			mysql_query($sql ,$conn);
-			$sql = "select id from `record_tag` where name = '$name'";
+            
+            $sql = "select id from `record_tag` where name = '$name'";
 			$result = mysql_query($sql ,$conn);
 			$row= mysql_fetch_array($result);
+		    $tagId = $row['id'];
 		}
 
-		$tagId = $row['id'];
 
 		$sql = "INSERT INTO `record_tag_map`(`tag_id`, `record_id`) VALUES ('$tagId','$recordId')";
 		mysql_query($sql ,$conn);
+    
+        $sql = "update record_tag set number=numberr+1 where id in (select tag_id from record_tag_map where record_id = '$recordId')"; 
+    	mysql_query($sql ,$conn);
 	}
 }
 
 function updateTags($recordId, $tags){
-	global $conn;
+    global $conn;
+
+    $sql = "update record_tag set number=number-1 where id in (select tag_id from record_tag_map where record_id = '$recordId')"; 
+	mysql_query($sql ,$conn);
+
+
 	$sql = "delete from `record_tag_map` where record_id = '$recordId' ";
-	$result = mysql_query($sql ,$conn);
-	addTags($recordId, $tags);
+	mysql_query($sql ,$conn);
+    
+    addTags($recordId, $tags);
 }
 
 function getTags($recordId){
@@ -206,6 +217,8 @@ function getAllTags(){
 
 function alter(){
 	global $conn;
+    
+    $staic = array(513,609,610);
 
 	if(isset($_POST['title']) && isset($_POST['time']) && isset($_POST['content'])){
 		//获得表单数据
@@ -230,7 +243,7 @@ function alter(){
 			$time = time();
 			$year = date("Y",$time);;
 		}
-        if($id == 513){
+        if(in_array($id, $staic)){
             $last_time = $time;
         }else{
             $last_time = time();

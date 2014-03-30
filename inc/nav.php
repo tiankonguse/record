@@ -13,8 +13,8 @@
 		</li>
 		<li><a href="<?php echo DOMAIN_TIMELINE;?>timeline.php?id=24" target="_blank">电影</a>
 		</li>
-		<li><a href="<?php echo MAIN_DOMAIN;?>aboutme.php">关于</a></li>
-		<li><a href="<?php echo MAIN_DOMAIN;?>donate.php">捐赠</a></li>
+		<li><a href="<?php echo MAIN_DOMAIN;?>record.php?id=609">关于</a></li>
+		<li><a href="<?php echo MAIN_DOMAIN;?>record.php?id=610">捐赠</a></li>
 		<?php if(strcmp($admin,"record_admin") != 0){ ?>
 		<li><a href="<?php echo MAIN_DOMAIN;?>login.php">登录</a></li>
 		<?php  }else{?>
