@@ -88,6 +88,8 @@ pre.prettyprint {
 	margin-top: 10px;
 	max-width: inherit;
 	margin: auto;
+    margin-left:10px;
+    margin-right:10px;
 	/*background-color: rgb(243, 243, 243);*/
     background-color: #EEEEEE;
 }
@@ -753,7 +755,7 @@ footer {
 		margin-bottom: 5px;
 	}
 	.container {
-		margin: 0 0 0 0;
+		margin: 10px;
 		width: 890px;
 	}
 	.aside {
