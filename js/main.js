@@ -90,7 +90,8 @@ $(function() {
 
     $(".unitList .unit").bind("click", function() {
         var id = $(this).attr("rid");
-        window.location.href = "<?php echo MAIN_DOMAIN; ?>record.php?id=" + id;
+        var url = $(this).attr("url");
+        window.location.href = url;
     });
 
     $(".unitList .unit").mouseout(function() {

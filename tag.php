@@ -24,12 +24,19 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
-	<div class="outer-wrapper">
+	<div class="outer-wrapper outer-color">
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
-			<section class="tag billboard">
-				<div style="margin-top: 10px;">标签：</div>
+			<section class="tag billboard clearfix">
+            <?php require "./inc/tag.php";?>
+                <div class="container">
+                    <section class="title sub-title" itemprop="name">
+                        <h1>
+                       <a fref="javascript:void(0);"> 标签</a>
+                        </h1>
+                    </section>
+                    <article class="content">
 				<div class="plus-tag tagbtn clearfix">
 					<?php
 					foreach($allTags as $key=>$val){
@@ -37,6 +44,9 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 	                }
 	                ?>
 				</div>
+                    </article>
+                </div>
+                <?php require("./inc/aside.php");?>
 			</section>
 		    <footer>
 			    <?php  require BASE_INC . 'footer.inc.php'; ?>

@@ -11,6 +11,7 @@ require ("./inc/common.php");
 require ("./inc/function.php");
 
 checkLogin ();
+$tag = "";
 
 $id = intval ( $_GET ["id"] );
 $sql = "select * from `record_record` where `id` = '$id'";
@@ -68,6 +69,7 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>plugins/code/prettify.css"}
             <?php require './inc/nav.php';?>
             <section class="billboard clearfix" itemscope
                 itemtype="http://schema.org/Article">
+            <?php require "./inc/tag.php";?>
                 <div class="container">
                     <section class="title sub-title" itemprop="name">
                         <h1>
@@ -143,6 +145,7 @@ foreach ( $tags as $key => $val ) {
                     </article>
 
                 </div>
+                <?php require("./inc/aside.php");?>
             </section>
         <div id="append_parent"></div>
 <script type="text/javascript">

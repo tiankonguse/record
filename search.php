@@ -6,14 +6,12 @@ session_start();
 require("./inc/common.php");
 require("./inc/function.php");
 checkLogin();
-if(!isset($_GET["tag"]) || $_GET["tag"] == "" || !preg_match('/^[^\'" <>]*$/',$_GET['tag']) ){
+if(!isset($_GET["tag"]) || $_GET["tag"] == "" || !preg_match('/^[^\'\"<>]*$/',$_GET['tag']) ){
     header('Location:index.php?message=非法操作');
     die();
 }
 
 $tag = $_GET["tag"];
-
-
 
 initTagPage($tag, 15);
 
@@ -35,8 +33,8 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
         <div class="inner-wrapper">
             <?php require './inc/head.php';?>
             <?php require './inc/nav.php';?>
-
             <section class="billboard clearfix">
+            <?php require "./inc/tag.php";?>
                 <div class="container">
                     <ul class="listing">
 <?php
@@ -59,31 +57,33 @@ while($row=@mysql_fetch_array($result)){
     }
 
     $alter = "";
-    $len = 630;
+    $len = 36;
     if(strcmp($admin,"record_admin") == 0){
         $alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>修改</a>";
         $alter .= "<a href='".MAIN_DOMAIN."alter.php?id=$id'>删除</a>";
-        $len = 600;
+        $len = 33;
     }
+    $showTitle = htmlspecialchars($title);
     echo "
         <li class=\"listing-item\">
-        <div style=\"float: left; \"><time datetime='$time'>$time</time></div>
-        <div style=\"overflow: hidden;display: inline-block; white-space: nowrap;width: {$len}px;\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"$title\">".htmlspecialchars($title)."</a></div>
-        <div style=\"float: right;\">$alter</div>
+        <time datetime='$time'>$time</time>
+        <a href=\"".MAIN_DOMAIN."record.php?id=$id\" title=\"".str_replace( array("\""," ","<",">","&"), array("&quot;","&nbsp;","&lt;","&gt;","&amp;"),$title)."\" class=\"item-title\" >$showTitle</a>
+        <span class=\"right\">$alter</span>
         </li>";
 }
 ?>
                     </ul>
                 </div>
+                <?php require("./inc/aside.php");?>
             </section>
             <section class="billboard">
                 <?php require('./inc/page.inc.php'); ?>
             </section>
-        </div>
-
         <footer>
             <?php  require BASE_INC . 'footer.inc.php'; ?>
         </footer>
+        </div>
+
     </div>
 <script>
 TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});

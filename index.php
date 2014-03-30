@@ -14,6 +14,8 @@ $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
 $baseurl = MAIN_DOMAIN."index.php?";
 
+$tag = "";
+
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
@@ -27,6 +29,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
             <?php require './inc/head.php';?>
             <?php require './inc/nav.php';?>
             <section class="billboard clearfix">
+            <?php require "./inc/tag.php";?>
                 <div class="container">
                     <ul class="listing">
 <?php

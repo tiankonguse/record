@@ -12,8 +12,9 @@ initPage(16);
 $nowPage = $_GET['nowPage'];
 $allPageNum = $_GET['allPageNum'];
 $pageSize = $_GET['pageSize'];
-$baseurl = "index_gaid.php?";
+$baseurl = "index_grid.php?";
 
+$tag = "";
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>
@@ -22,12 +23,13 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
 </head>
 <body>
-	<div class="outer-wrapper">
+	<div class="outer-wrapper outer-color">
 		<div class="inner-wrapper">
 			<?php require './inc/head.php';?>
 			<?php require './inc/nav.php';?>
 
-			<section class="billboard">
+			<section class="billboard clearfix">
+            <?php require "./inc/tag.php";?>
 				<div class="container">
 					<ul class="unitList clearfix">
 						<?php
@@ -62,7 +64,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 
 							$tags = getTags($id);
 							echo "
-							<li class=\"unit article handcursor\" rid=\"$id\">
+							<li class=\"unit article handcursor\" rid=\"$id\" url=\"".MAIN_DOMAIN."record.php?id=$id\">
 							<div class=\"mask\">
 							<h4 class=\"article-h4\"><a href=\"".MAIN_DOMAIN."record.php?id=$id\">$title</a></h4>
 							<div class=\"date\">$time</div>
@@ -93,14 +95,15 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 						?>
 					</ul>
 				</div>
+                <?php require("./inc/aside.php");?>
 			</section>
 			<section class="billboard">
 				<?php require('./inc/page.inc.php'); ?>
 			</section>
-		</div>
 		<footer>
 			<?php  require BASE_INC . 'footer.inc.php'; ?>
 		</footer>
+		</div>
 	</div>
 	<?php
 	if(isset($_GET['message'])){
