@@ -3,9 +3,9 @@
         <nav class="view-mode">
             <h3>查看模式</h3>
             <ul>
-            <li class="thumbs on" data-rel="thumbs"><a href="<?php echo MAIN_DOMAIN."index_grid.php"?>">缩略图</a>
+            <li class="thumbs <?php if(strcmp($style, "grid") == 0){echo "on"; }?>" data-rel="thumbs"><a href="<?php echo MAIN_DOMAIN."index_grid.php"?>">缩略图</a>
                 </li>
-                <li class="list " data-rel="list"><a href="<?php echo MAIN_DOMAIN?>">列表</a>
+                <li class="list <?php if(strcmp($style, "list") == 0){echo "on"; }?>"" data-rel="list"><a href="<?php echo MAIN_DOMAIN?>">列表</a>
                 </li>
             </ul>
         </nav>

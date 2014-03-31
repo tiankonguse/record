@@ -15,6 +15,7 @@ $pageSize = $_GET['pageSize'];
 $baseurl = "index_grid.php?";
 
 $tag = "";
+$style = "grid";
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';
 ?>

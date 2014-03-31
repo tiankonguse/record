@@ -907,7 +907,7 @@ footer {
 }
 
 .filter-box .container-tag {
-    height: 34px;
+    height: auto;
     width: auto;
     clear:both;
     border-bottom: 1px solid #e3e3e3;

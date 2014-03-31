@@ -15,6 +15,8 @@ $pageSize = $_GET['pageSize'];
 $baseurl = MAIN_DOMAIN."index.php?";
 
 $tag = "";
+$style = "list";
+
 
 $title = "tiankonguse' record";
 require BASE_INC . 'head.inc.php';

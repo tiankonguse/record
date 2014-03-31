@@ -6,12 +6,15 @@ session_start();
 require("./inc/common.php");
 require("./inc/function.php");
 checkLogin();
+
+
 if(!isset($_GET["tag"]) || $_GET["tag"] == "" || !preg_match('/^[^\'\"<>]*$/',$_GET['tag']) ){
     header('Location:index.php?message=非法操作');
     die();
 }
 
 $tag = $_GET["tag"];
+$tag = preg_replace("/ /","+",$tag);
 
 initTagPage($tag, 15);
 
