@@ -665,6 +665,9 @@ a:hover {
     color: #999999;
     font-family: Georgia, "Microsoft YaHei", serif, Galdeano,
     "Hiragino Sans GB", sans-serif;
+    display: inline-block;
+    overflow-y: hidden;
+    padding-bottom: 4px;
 }
 
 .listing-seperator {
@@ -776,7 +779,7 @@ footer {
         padding: 22px 0 0 0;
     }
     body {
-        min-width: 1300px;
+        min-width: 1280px;
         max-width: 1400px;
         margin: auto;
     }
@@ -794,6 +797,7 @@ footer {
     }
     .listing-item a {
         padding: .2em 1em;
+        max-width:535px;
     }
     .menu-list>li>a {
         padding-left: 0.4em;
