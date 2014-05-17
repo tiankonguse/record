@@ -35,16 +35,42 @@ if ($flag == 0) {
 	// post_id term_taxonomy_id 0
 	//
 	// wp_posts(post_author, post_date, post_date_gmt, post_content, post_titlepost_modified, post_modified_gmt
-	//
+	  //
 } else if ($flag == 3) {
+   fix_record_add_link(); 
 } else if ($flag == 4) {
 } else {
 }
 
 echo "finish \n";
+
+function fix_record_add_link(){
+	global $conn;
+	$result_record = mysql_query ( "select id, title, content from record_record where announce = 0", $conn );
+	while ( $row_record = mysql_fetch_array ( $result_record ) ) {
+		$id = $row_record ["id"];
+		$title = $row_record ["title"];
+		$content = $row_record ["content"];
+        var_dump ( "$title begin", "<br>" );
+        
+        $content = "<h2>
+	声明
+</h2>
+<p>
+	&nbsp; &nbsp;笔者最近意外的发现 笔者的个人网站<a href=\"http://tiankonguse.com/\" target=\"_blank\">&nbsp;http://tiankonguse.com/</a>&nbsp;的很多文章被其它网站转载，但是转载时未声明文章来源或参考自&nbsp;<a href=\"http://tiankonguse.com/\" target=\"_blank\">http://tiankonguse.com/</a> 网站，因此，笔者添加此条声明。
+</p>
+<p>
+	&nbsp; &nbsp; 郑重声明：这篇记录《<a href=\"http://tiankonguse.com/record/record.php?id=$id\" target=\"_blank\">$title</a>》转载自&nbsp;<a href=\"http://tiankonguse.com/\" target=\"_blank\">http://tiankonguse.com/</a> 的这条记录：<a href=\"http://tiankonguse.com/record/record.php?id=$id\" target=\"_blank\">http://tiankonguse.com/record/record.php?id=$id</a>
+</p><p><br/></p>" . $content;
+        $content = mysql_real_escape_string($content);
+        $sql = "UPDATE `record_record` SET content`= '$content',`announce` = '1' WHERE `id` = '$id'";
+        mysql_query($sql ,$conn);
+    }
+}
+
 function fix_record_to_wp() {
 	global $conn;
-	$result_record = mysql_query ( "select id, title, content, time, last_time from record_record", $conn );
+	$result_record = mysql_query ( "select id, title, content, time, last_time from record_record where lockauthor = ''", $conn );
 	while ( $row_record = mysql_fetch_array ( $result_record ) ) {
 		$record_id = $row_record ["id"];
 		$record_title = $row_record ["title"];

@@ -9,9 +9,9 @@ require("./inc/function.php");
 checkLogin();
 initPage(15);
 
-$nowPage = $_GET['nowPage'];
-$allPageNum = $_GET['allPageNum'];
-$pageSize = $_GET['pageSize'];
+$nowPage = intval($_GET['nowPage']);
+$allPageNum = intval($_GET['allPageNum']);
+$pageSize = intval($_GET['pageSize']);
 $baseurl = MAIN_DOMAIN."index.php?";
 
 $tag = "";
@@ -35,7 +35,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                 <div class="container">
                     <ul class="listing">
 <?php
-$sql = "select * from `record_record`  ORDER BY  `last_time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+$sql = "select * from `record_record` where lockauthor = '' ORDER BY  `last_time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
 $result = mysql_query($sql ,$conn);
 
 $pre_year = "";

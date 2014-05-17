@@ -80,6 +80,7 @@ TK.loader.loadCSS({url:"<?php echo PATH_kindeditor;?>plugins/code/prettify.css"}
                     </section>
                     <article class="content">
                          <section class="meta clearfix">
+                            <span class="author">作者 : tiankonguse</span>
                              <span class="time"> posted at <time
                                      datetime="<?php echo $time;?>" itemprop="datePublished"
                                     content="<?php echo $time;?>">

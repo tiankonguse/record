@@ -15,7 +15,8 @@ if((!$conn || !$result) && $ret){
         case 1 :echo $json->encode(login());break;
         case 2 :echo $json->encode(write());break;
         case 3 :echo $json->encode(alter());break;
-        case 4 :echo $json->encode(delete());break;
+        case 4 :echo $json->encode(delet());break;
+        case 5 :echo $json->encode(autoSave());break;
     }
 }
 

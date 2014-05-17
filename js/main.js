@@ -101,5 +101,14 @@ $(function() {
 });
 
 
+$(function(){
+    $(".post br").each(function(){
+        $br = $(this);
+        if($br.parent().get(0).tagName != "P"){
+            $br.attr("clear","all");    
+        }
+    })
+});
+
 
 

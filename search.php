@@ -16,17 +16,21 @@ if(!isset($_GET["tag"]) || $_GET["tag"] == "" || !preg_match('/^[^\'\"<>]*$/',$_
 $tag = $_GET["tag"];
 $tag = preg_replace("/ /","+",$tag);
 
+
+
 initTagPage($tag, 15);
 
-$nowPage = $_GET['nowPage'];
-$allPageNum = $_GET['allPageNum'];
-$pageSize = $_GET['pageSize'];
-$tagId = $_GET['tagId'];
+$nowPage = intval($_GET['nowPage']);
+$allPageNum = intval($_GET['allPageNum']);
+$pageSize = intval($_GET['pageSize']);
+$tagId = intval($_GET['tagId']);
+
 $baseurl = "search.php?tag=$tag&";
 
 $title = "tiankonguse' record ~ $tag";
 require BASE_INC . 'head.inc.php';
 ?>
+    <!-- <?php //var_dump($tagId, $nowPage, $allPageNum, $pageSize); ?>-->
 <script type="text/javascript">
 TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
 </script>
@@ -41,7 +45,7 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                 <div class="container">
                     <ul class="listing">
 <?php
-$sql = "select * from `record_record` where id in (select record_id from `record_tag_map` where tag_id = '$tagId') ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+$sql = "select * from `record_record` where lockauthor = '' and id in (select record_id from `record_tag_map` where tag_id = '$tagId') ORDER BY  `time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
 $result = mysql_query($sql ,$conn);
 
 $pre_year = "";
