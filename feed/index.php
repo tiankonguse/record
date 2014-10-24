@@ -23,6 +23,9 @@ $feed .= "<description><![CDATA[牛奶会有的，面包会有的. ]]></descript
 $feed .= "<link>http://tiankonguse.com/record/</link>\n";
 $feed .= "<language>zh-CN</language>\n";;
 
+$ad = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728-90 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2326969899478823" data-ad-slot="1751809197"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>';
 
 $sql = "select * from `record_record`  ORDER BY  `time` DESC LIMIT " . ($nowPage - 1) * $pageSize . " , $pageSize";
 $result = mysql_query ( $sql, $conn );
@@ -41,7 +44,7 @@ while ( $row = @mysql_fetch_array ( $result ) ) {
 	//$feed .= "<author><![CDATA[tiankonguse]]></author>\n";
 	$feed .= "<dc:creator><![CDATA[tiankonguse]]></dc:creator>\n";
 	$feed .= "<pubDate>$time</pubDate>\n";
-	$feed .= "<description><![CDATA[ \n $content \n ]]> </description>\n";
+	$feed .= "<description><![CDATA[ \n $content $ad \n ]]> </description>\n";
 
 	$tags = getTags ( $id );
 	foreach ( $tags as $key => $val ) {

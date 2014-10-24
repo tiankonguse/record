@@ -782,7 +782,7 @@ footer {
         width: 890px;
     }
     .aside {
-        width: 290px;
+        width: 400px;
         padding: 22px 0 0 0;
     }
     body {
@@ -907,6 +907,9 @@ footer {
         margin: 0px 2px;
         height: 15px;
         width: 20px;
+    }
+    .aside {
+        display:none;
     }
 }
 
