@@ -35,13 +35,13 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                 <div class="container">
                     <ul class="listing">
 <?php
-$sql = "select * from `record_record` where lockauthor = '' ORDER BY  `last_time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
+$sql = "select * from `record_record` where `invalid` = '1' ORDER BY  `last_time` DESC LIMIT ".($nowPage-1)*$pageSize." , $pageSize";
 $result = mysql_query($sql ,$conn);
 
 $pre_year = "";
 $pre_mon = "";
 
-while($row=@mysql_fetch_array($result)){
+while($row=mysql_fetch_array($result)){
     $id = $row['id'];
     $time = $row['last_time'];
     $title = getDateFromMysql($row['title']);
