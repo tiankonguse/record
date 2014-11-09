@@ -103,14 +103,6 @@ if (strcmp ( $admin, "record_admin" ) == 0) {
 
                         <section class="post" itemprop="articleBody">
                             <?php echo $content; ?>
-							<!-- 728-90 -->
-							<ins class="adsbygoogle"
-								 style="display:inline-block;width:728px;height:90px"
-								 data-ad-client="ca-pub-2326969899478823"
-								 data-ad-slot="1751809197"></ins>
-							<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
                         </section>
                         <section>
                         <?php require BASE_INC . "bdShare.php";?>
@@ -171,14 +163,6 @@ TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js"});
 TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/showImg.js"});
 </script>
     </div>
-<!-- footer -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-2326969899478823"
-     data-ad-slot="5074793995"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 </body>
 </html>
 <?php require BASE_INC . "end.php";?>

@@ -1,0 +1,2 @@
+User-agent: *
+Disallow:/record/record.php%3Fid*
