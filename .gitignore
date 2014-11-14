@@ -1,0 +1,8 @@
+_site/*
+build/*
+_drafts/*
+.DS_Store
+*.swp
+.buildpath
+.project
+.settings/*
