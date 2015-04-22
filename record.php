@@ -118,6 +118,16 @@ foreach ( $tags as $key => $val ) {
                             </div>
                         </section>
                         <section>
+                            <!-- footer -->
+                            <ins class="adsbygoogle"
+                                 style="display:inline-block;width:728px;height:90px"
+                                 data-ad-client="ca-pub-2326969899478823"
+                                 data-ad-slot="5074793995"></ins>
+                            <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </section>
+                        <section>
                             <div class="mod-detail-pager clearfix">
                                 <div class="detail-nav-pre left">
                                     上一篇：
@@ -131,7 +141,7 @@ foreach ( $tags as $key => $val ) {
                         </section>
                         <section>
                              <div id="disqus_thread"></div>
-<script type="text/javascript">
+                            <script type="text/javascript">
                             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
                                 var disqus_shortname = 'tiankonguse-record'; // required: replace example with your forum shortname
                     
@@ -149,9 +159,6 @@ foreach ( $tags as $key => $val ) {
                 <?php require("./inc/aside.php");?>
             </section>
         <div id="append_parent"></div>
-<script type="text/javascript">
-
-             </script>
         <footer>
             <?php  require BASE_INC . 'footer.inc.php'; ?>
         </footer>
@@ -159,8 +166,6 @@ foreach ( $tags as $key => $val ) {
 <script>
 TK.loader.loadJS({url:"<?php echo PATH_JS;?>main.js"});
 TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/main.js"});
-TK.loader.loadJS({url:"<?php echo PATH_JS;?>showImg.js"});
-TK.loader.loadJS({url:"<?php echo MAIN_PATH;?>js/showImg.js"});
 </script>
     </div>
 </body>

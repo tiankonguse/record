@@ -21,6 +21,14 @@
             </div>
         </li>
         <li>
+            <!-- 320 x 50 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:336px;height:280px"
+                 data-ad-client="ca-pub-2326969899478823"
+                 data-ad-slot="4844876392"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </li>
     </ul>
 </div>

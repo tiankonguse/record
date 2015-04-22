@@ -27,10 +27,12 @@ TK.loader.loadCSS({url:"<?php echo MAIN_PATH;?>css/main.css"});
                         </h1>
                     </section>
                     <article class="content">
+<!-- 
 
                         <section class="post" itemprop="articleBody">
                 <a href="http://tiankonguse.com/lab/AKeyToSend/" style="color: red;">给我发短信</a>
                         </section>
+-->
                         <section>
                 <div id="disqus_thread"></div>
 <script type="text/javascript">
