@@ -792,6 +792,7 @@ footer {
     .container {
         margin: 5px;
         min-width: 790px;
+        max-width: 70%
     }
     .aside {
         width: 400px;
