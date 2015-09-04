@@ -17,6 +17,11 @@ $baseurl = "index_grid.php?";
 $tag = "";
 $style = "grid";
 $title = "tiankonguse' record";
+
+if($nowPage > 0){  
+    $title .= " ~ 第${nowPage}页";
+}
+
 require BASE_INC . 'head.inc.php';
 ?>
 <script type="text/javascript">
