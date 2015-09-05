@@ -6,6 +6,10 @@ session_start();
 require("./inc/common.php");
 require("./inc/function.php");
 
+$test = DB_HOST;
+
+//var_dump($ret);
+
 checkLogin();
 initPage(15);
 
