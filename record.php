@@ -1,8 +1,19 @@
+<?php
+session_start();
+if(isset($_GET["id"])){
+    $id = intval($_GET["id"]);
+    $strId = "$id";
+    if(strcmp($strId, $_GET["id"])  || isset($_GET["rat"]) || isset($_GET["host"]) || isset($_GET["port"])){
+        echo "403 ";
+        header("HTTP/1.0 403 Forbidden");
+        die();
+    }
+}
+?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
 <?php
-session_start ();
 if (! isset ( $_GET ["id"] )) {
     header ( 'Location:index.php?message=非法操作' );
     die ();

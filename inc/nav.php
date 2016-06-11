@@ -1,7 +1,8 @@
 <nav class="menu-wrapper">
 	<ul class="menu-list clearfix">
 		<li><a href="<?php echo MAIN_DOMAIN;?>">主页</a></li>
-		<!-- <li><a href="<?php echo MAIN_DOMAIN;?>index_gaid.php">方格</a></li> -->
+		<li><a href="<?php echo DOMAIN_HOME;?>">旧版主页</a></li> 
+		<!-- <li><a href="<?php echo MAIN_DOMAIN;?>index_grid.php">方格</a></li> -->
 		<li><a href="<?php echo MAIN_DOMAIN;?>write.php">记录</a></li>
 		<li><a href="<?php echo DOMAIN_LAB;?>" target="_blank">实验室</a></li>
 		<li><a href="<?php echo MAIN_DOMAIN;?>tag.php">标签</a></li>

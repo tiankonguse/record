@@ -1,8 +1,10 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html lang="zh-cn">
 <head>
 <?php
-session_start();
 require("./inc/common.php");
 require("./inc/function.php");
 
