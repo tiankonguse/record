@@ -61,7 +61,7 @@ function getPostList(){
  
     $pageSize = $data['pageSize'];
     $offset = $data['offset'];
-    $sql = "select id,time,last_time,title from `record_record` where `invalid` = '1' ORDER BY `last_time` DESC LIMIT $offset , $pageSize";
+    $sql = "select id,time,last_time,title from `record_record` where `invalid` = '1' ORDER BY `time` DESC LIMIT $offset , $pageSize";
     $result = mysql_query($sql ,$conn);
     if(!$result){
         return output(OUTPUT_ERROR, "非法操作");
@@ -72,9 +72,9 @@ function getPostList(){
 
     while($row=mysql_fetch_array($result)){
         $item = array();
-        $item["id"] = $row['id'];
-        $item["time"] = $row['time'];
-        $item["last_time"] = $row['last_time'];
+        $item["id"] = intval($row['id']);
+        $item["time"] = intval($row['time']);
+        $item["last_time"] = intval($row['last_time']);
         $item["title"] = $row['title'];
         
         $list[] = $item;
@@ -88,6 +88,10 @@ function getPostList(){
 function getPostData(){
     global $conn;
     
+    if(!isset($_GET["id"])){
+        return output(OUTPUT_ERROR, "非法操作");
+    }
+    
     $retutnJson = array();
     $retutnJson["data"] = array();
     $data = &$retutnJson["data"];
@@ -97,10 +101,10 @@ function getPostData(){
     $result = mysql_query ( $sql, $conn );
      
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $data["id"] = $row['id'];
+        $data["id"] = intval($row['id']);
         $data["title"] = $row['title'];
-        $data["time"] = $row['time'];
-        $data["last_time"] = $row['last_time'];
+        $data["time"] = intval($row['time']);
+        $data["last_time"] = intval($row['last_time']);
         $data["content"] = $row['content'];
         $data["tags"] = getTags ($row['id']);
         
@@ -116,7 +120,7 @@ function getPostData(){
     $sql = "select id,time,last_time,title from `record_record`  where `time` > '$time' ORDER BY  `time` ASC  limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $pre["id"] = $row ['id'];
+        $pre["id"] = intval($row ['id']);
         $pre["title"] = $row ['title'];
     }
     
@@ -127,7 +131,7 @@ function getPostData(){
     $sql = "select id,time,last_time,title from `record_record` where `time` < '$time' ORDER BY  `time` DESC limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $next["id"] = $row ['id'];
+        $next["id"] = intval($row ['id']);
         $next["title"] = $row ['title'];
     }
     
