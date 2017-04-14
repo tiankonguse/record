@@ -68,7 +68,7 @@ function getRecordNum(){
     $sql = "select count(*) num from `record_record`";
     $result = mysql_query($sql ,$conn);
     $row= mysql_fetch_array($result);
-    return int($row['num']);
+    return intval($row['num']);
 }
 function getRecordNumByTagId($tagId){
     global $conn;
