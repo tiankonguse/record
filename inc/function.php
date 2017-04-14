@@ -114,7 +114,8 @@ function initTagPage($tag, $pageSize){
 function initPage($pageSize){
     $_GET['pageSize'] = $pageSize;
 
-    $allPageNum = intval((getRecordNum() + $pageSize - 1) / $pageSize);
+    $_GET['allPostNum'] = getRecordNum();
+    $allPageNum = intval(($_GET['allPostNum'] + $pageSize - 1) / $pageSize);
     $_GET['allPageNum'] = $allPageNum;
 
     $nowPage = 1;
@@ -127,6 +128,8 @@ function initPage($pageSize){
         $nowPage = $allPageNum;
     }
     $_GET['nowPage'] = $nowPage;
+    $_GET['offset'] = ($nowPage - 1) * $pageSize;
+    
 }
 
 function checkLogin(){
