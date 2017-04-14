@@ -127,7 +127,7 @@ function getPostData(){
     $data = &$retutnJson["data"];
     
     $id =  mysql_real_escape_string( $_GET ["id"] );
-    $sql = "select tk_blog_key id,UNIX_TIMESTAMP(tk_blog_datetime) time,tk_blog_title title,tk_blog_content content from `tk_blog` where `tk_blog_key` = '$id' limit 1";
+    $sql = "select tk_blog_key id,UNIX_TIMESTAMP(tk_blog_datetime) time,tk_blog_title title,tk_blog_content content, tk_blog_datetime from `tk_blog` where `tk_blog_key` = '$id' limit 1";
     $result = mysql_query ( $sql, $conn );
      
     if ($result && $row = mysql_fetch_array ( $result )) {
@@ -137,7 +137,7 @@ function getPostData(){
         $data["content"] = $row['content'];
         $data["tags"] = array();
         
-        $time = $data["time"];
+        $time = $row["tk_blog_datetime"];
     } else {
         return output(OUTPUT_ERROR, "非法操作");
     }
@@ -146,7 +146,7 @@ function getPostData(){
     $data["pre"] = array();
     $pre = &$data["pre"];
 
-    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog`  where `tk_blog_datetime` > FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` ASC  limit 0,1";
+    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog`  where `tk_blog_datetime` > '$time' ORDER BY  `tk_blog_datetime` ASC  limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
         $pre["id"] = $row ['id'];
@@ -157,7 +157,7 @@ function getPostData(){
     $data["next"] = array();
     $next = &$data["next"];
     
-    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog` where `tk_blog_datetime` < FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` DESC limit 0,1";
+    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog` where `tk_blog_datetime` < '$time' ORDER BY  `tk_blog_datetime` DESC limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
         $next["id"] = $row ['id'];
