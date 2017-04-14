@@ -41,6 +41,8 @@ function checkReferer(){
         return false;
     }
     
+    header('Access-Control-Allow-Origin: github.tiankonguse.com');
+    header('Access-Control-Allow-Credentials: true');
     return true;
 }
 
