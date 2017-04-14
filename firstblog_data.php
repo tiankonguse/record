@@ -127,11 +127,11 @@ function getPostData(){
     $data = &$retutnJson["data"];
     
     $id =  mysql_real_escape_string( $_GET ["id"] );
-    $sql = "select tk_blog_key id,UNIX_TIMESTAMP(tk_blog_datetime) time,tk_blog_title title,tk_blog_content content from `record_record` where `tk_blog_key` = '$id' limit 1";
+    $sql = "select tk_blog_key id,UNIX_TIMESTAMP(tk_blog_datetime) time,tk_blog_title title,tk_blog_content content from `tk_blog` where `tk_blog_key` = '$id' limit 1";
     $result = mysql_query ( $sql, $conn );
      
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $data["id"] = intval($row['id']);
+        $data["id"] = $row['id'];
         $data["title"] = $row['title'];
         $data["time"] = intval($row['time']);
         $data["content"] = $row['content'];
@@ -146,7 +146,7 @@ function getPostData(){
     $data["pre"] = array();
     $pre = &$data["pre"];
 
-    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `record_record`  where `tk_blog_datetime` > FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` ASC  limit 0,1";
+    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog`  where `tk_blog_datetime` > FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` ASC  limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
         $pre["id"] = $row ['id'];
@@ -157,7 +157,7 @@ function getPostData(){
     $data["next"] = array();
     $next = &$data["next"];
     
-    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `record_record` where `tk_blog_datetime` < FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` DESC limit 0,1";
+    $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `tk_blog` where `tk_blog_datetime` < FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` DESC limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
         $next["id"] = $row ['id'];
