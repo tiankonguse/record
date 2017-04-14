@@ -105,7 +105,6 @@ function getPostList(){
         $item = array();
         $item["id"] = intval($row['id']);
         $item["time"] = intval($row['time']);
-        $item["last_time"] = intval($row['last_time']);
         $item["title"] = $row['title'];
         
         $list[] = $item;
