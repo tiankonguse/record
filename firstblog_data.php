@@ -103,7 +103,7 @@ function getPostList(){
 
     while($row=mysql_fetch_array($result)){
         $item = array();
-        $item["id"] = intval($row['id']);
+        $item["id"] = $row['id'];
         $item["time"] = intval($row['time']);
         $item["title"] = $row['title'];
         
@@ -126,7 +126,7 @@ function getPostData(){
     $retutnJson["data"] = array();
     $data = &$retutnJson["data"];
     
-    $id = intval ( $_GET ["id"] );
+    $id =  mysql_real_escape_string( $_GET ["id"] );
     $sql = "select tk_blog_key id,UNIX_TIMESTAMP(tk_blog_datetime) time,tk_blog_title title,tk_blog_content content from `record_record` where `tk_blog_key` = '$id' limit 1";
     $result = mysql_query ( $sql, $conn );
      
@@ -149,7 +149,7 @@ function getPostData(){
     $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `record_record`  where `tk_blog_datetime` > FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` ASC  limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $pre["id"] = intval($row ['id']);
+        $pre["id"] = $row ['id'];
         $pre["title"] = $row ['title'];
     }
     
@@ -160,7 +160,7 @@ function getPostData(){
     $sql = "select tk_blog_key id,tk_blog_datetime time,tk_blog_title title from `record_record` where `tk_blog_datetime` < FROM_UNIXTIME('$time') ORDER BY  `tk_blog_datetime` DESC limit 0,1";
     $result = mysql_query ( $sql, $conn );
     if ($result && $row = mysql_fetch_array ( $result )) {
-        $next["id"] = intval($row ['id']);
+        $next["id"] = $row ['id'];
         $next["title"] = $row ['title'];
     }
     
