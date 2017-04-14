@@ -33,7 +33,7 @@ function checkReferer(){
     }
     
     
-    if(!isset($_SERVER['HTTP_REFERER'])){
+    if(!isset($result["host"])){
         return false;
     }
     $host = $result["host"];
