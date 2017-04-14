@@ -1,12 +1,12 @@
 <?php
 session_start();
 require("./inc/common.php");
-require("./function.php");
+require("./inc/function.php");
 
 $json = new Services_JSON();
 if((!$conn || !$result) && $ret){
     echo $json->encode($ret);
-}else if(!checkReferer())){
+}else if(!checkReferer()){
     echo $json->encode(output(OUTPUT_ERROR,"非法操作"));
 }else if(!isset($_GET["state"])){
     echo $json->encode(output(OUTPUT_ERROR,"非法操作"));
@@ -22,9 +22,18 @@ if((!$conn || !$result) && $ret){
 }
 
 function checkReferer(){
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        return false;
+    }
+    
     $url = $_SERVER['HTTP_REFERER'];
     $result = parse_url($url);
     if(!$result){
+        return false;
+    }
+    
+    
+    if(!isset($_SERVER['HTTP_REFERER'])){
         return false;
     }
     $host = $result["host"];
