@@ -136,7 +136,7 @@ function getPostData(){
         $data["title"] = $row['title'];
         $data["time"] = intval($row['time']);
         $data["content"] = $row['content'];
-        $data["tags"] = array()
+        $data["tags"] = array();
         
         $time = $data["time"];
     } else {
