@@ -8,6 +8,12 @@
 				3.接受讲解任何算法<br>
 			</div>
 		</li>
+        <li>
+			<h3>关注公众号,接收最新消息</h3>
+			<div>
+                <img src="http://github.tiankonguse.com/images/weixin-12cm.jpg" border="0" width="100%" alt="" class="img_weixin">
+			</div>
+		</li>
          <li>
             <h3>遗忘的页面</h3>
             <div>
